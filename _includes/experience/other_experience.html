@@ -1,0 +1,19 @@
+<div class="col mt-4">
+  <div class="timeline-body">
+    {% for item in site.data.other-experience-data %}
+    <div class="timeline-item">
+      <div class="content">
+        <div class="row">
+          <div class="column left"><img src="{{ item.logo }}" class="circle-logo-other wow animated zoomIn" data-wow-delay=".1s">
+          </div>
+          <div class="column right">
+            <h3>{{ item.place }}</h3>
+            <h5>{{ item.position }}</h5>
+            <h6 class="date">{{ item.from }} — {{ item.to }}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

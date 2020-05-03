@@ -1,0 +1,79 @@
+### Site Settings ###
+title               : Rakibuzzaman Rahat
+subtitle            : MSE | Creative Coder
+description         : >-
+                      "Tell me and I forget. Teach me and I remember. Involve me and I learn."
+                      
+baseurl             : ""      
+name                : Rakibuzzman Rahat  
+repository          : sleipnir029           
+
+
+### Plugins ###
+plugins:
+  - jemoji
+
+
+### Navbar Settings ###
+nav_exclude:                                            # The following paths are excluded from navbar
+  - pages/tags.html
+  - pages/404.html
+  - pages/index.md
+  - pages/projects.html
+
+
+### Author Info ###
+author:
+  name              : Rakibuzzaman Rahat
+  image             : assets/img/avatar.png
+  email             : rahat.zaman029@gmail.com
+  linkedin          : rakibuzzamanrahat
+  github            : sleipnir029
+  facebook          : rakibuzzamanrahat
+  twitter           : rakibuzzaman_
+  itchio            : zeezbitstudios.itch.io
+# behance           : your_username
+# medium            : your_username
+# gitlab            : your_username
+# instagram         : your_username
+# dribbble          : your_username
+# soundcloud        : your_username
+# spotify           : your_username
+# stackoverflow     : your_user_id
+# tumblr            : your_username.tumblr.com
+# twitch            : azmainadel_
+# vimeo             : your_username
+# youtube           : your_channel_name
+
+
+### Posts ###
+permalink: /blog/:title
+
+### Google Services ###
+google_analytics: UA-160210255-1
+
+### Disqus ###
+disqus:
+    shortname: rakibuzzmanrahat
+
+### Collections ###
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name
+
+
+### Defaults for collections ###
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
+
+### Exclude from processing ###
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - "*.log"

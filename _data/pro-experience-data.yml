@@ -1,0 +1,34 @@
+- place: <a href="https://field.buzz/" target="_blank">Field Information Solutions GmbH/Ltd. </a>
+  logo: "../assets/img/work-logos/f.png"
+  position: Jr. Software Engineer (Level 2)  
+  from: July 2019
+  to: Present
+  description:  The visionary company Field Information Solutions GmbH is
+                my rite of passage into software engineering professionalism.
+                The mobile app team has been working on building in-depth,
+                sector-specific modules on one powerful platform, Field Buzz.
+                Developers and designers blew me away with their willingness 
+                to share their time and wisdom.
+
+- place: <a href="https://durbinlabs.com/" target="_blank">Durbin Labs Ltd. </a>
+  logo: "../assets/img/work-logos/d.png"
+  position: Software Development Intern  
+  from: May 2016
+  to: Jan 2017
+  description:  I was a lucky intern to work with Durbin Lab's small, brilliant android team.
+                I learned about project management, Android & web app development,
+                testing, using software development tools etc.
+                This tenure during my varsity years flooded me with opportunities
+                to osmose bits of wisdom from software developers, system designers,
+                testers from the industry.
+
+# - place: Microsoft Bangladesh
+#   logo: "../assets/img/work-logos/m.png"
+#   position: Intern 
+#   from: Dec 2016
+#   to: Jan 2017
+#   description:  I worked with Young Bangla who launched a program with
+#                 Microsoft Bangladesh to inspire the young developers to come up with something
+#                 that would make a mark on the socio-economic state of Bangladesh.
+#                 Working with a company with such an immense calibre taught me to surround myself 
+#                 with people who push me to my limits.
