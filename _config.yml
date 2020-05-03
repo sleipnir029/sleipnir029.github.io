@@ -53,7 +53,7 @@ permalink: /blog/:title
 ### Google Services ###
 google_analytics: UA-165410052-1
 
-### Disqus ###
+### Disqus ####
 disqus:
     shortname: 
 
