@@ -1,4 +1,4 @@
-- place: <a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios. </a>
+- place: <a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios.</a>
   logo: "../assets/img/z2.png"
   position: Founder, Indie Game Dev 
   from: May 2019
@@ -6,3 +6,13 @@
   description:  An Indie Game Development, focused on creating and
                 producing high-quality originals. Specialised in making
                 2D games.
+
+- place: <a href="http://www.ranisteel.com/" target="_blank">Rani Re-Rolling Mills Ltd. (RRM)</a>
+  logo: "../assets/img/rrm.png"
+  position: Engineer, Quality Control
+  from: November 2019
+  to: December 2019
+  description:  The Rani Re-Rolling Mills Ltd. (RRM) is imbued with a forward looking
+                vision to acquire a global perspective and become a first rate business conglomerate.
+                RRM has a track record in manufacturing of mild steel structural Re-bars and
+                Wire products in Bangladesh for decades.
