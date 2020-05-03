@@ -51,11 +51,11 @@ author:
 permalink: /blog/:title
 
 ### Google Services ###
-google_analytics: UA-160210255-1
+google_analytics: UA-165410052-1
 
 ### Disqus ###
 disqus:
-    shortname: rakibuzzmanrahat
+    shortname: 
 
 ### Collections ###
 collections:
