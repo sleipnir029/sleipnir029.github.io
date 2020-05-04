@@ -1,6 +1,6 @@
 - place: <a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios.</a>
-  logo: "../assets/img/z2.png"
-  position: Founder, Indie Game Dev 
+  logo: "../assets/img/z2_.png"
+  position: Founder | Indie Game Dev 
   from: May 2019
   to: Present
   description:  An Indie Game Development, focused on creating and
@@ -8,11 +8,20 @@
                 2D games.
 
 - place: <a href="http://www.ranisteel.com/" target="_blank">Rani Re-Rolling Mills Ltd. (RRM)</a>
-  logo: "../assets/img/rrm.png"
-  position: Engineer, Quality Control
+  logo: "../assets/img/rrm_.png"
+  position: Engineer | Quality Control
   from: November 2019
   to: December 2019
   description:  The Rani Re-Rolling Mills Ltd. (RRM) is imbued with a forward looking
                 vision to acquire a global perspective and become a first rate business conglomerate.
                 RRM has a track record in manufacturing of mild steel structural Re-bars and
                 Wire products in Bangladesh for decades.
+
+- place: <a href="http://www.bandarsteel.com/" target="_blank">Bandar Steel Industries LTD. (BSI)</a>
+  logo: "../assets/img/bsi_.png"
+  position: Intern | Quality Control
+  from: September 2017
+  to: October 2017
+  description:  Bandar Steel Industries Limited is one of the most sparkling limited
+                company in steel sector of Bangladesh. Our key product is MS billets
+                and deformed MS bars which are mandatory for Constructional purposes.
