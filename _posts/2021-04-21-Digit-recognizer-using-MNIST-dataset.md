@@ -196,6 +196,7 @@ Final evaluation of the model had been done with the dataset from the test.csv f
 
 
 **References:**
+0. [MNIST for Image Classification](https://github.com/sleipnir029/MNIST-for-Image-Classification)
 1. [Convolutional Neural Network (CNN) Tutorial](https://www.kaggle.com/rafetcan/convolutional-neural-network-cnn-tutorial/comments)
 2. [Digit recognizer](https://www.kaggle.com/winternguyen/digit-recognizer)
 3. [Convolutional Neural Network (CNN) basics](https://pythonprogramming.net/convolutional-neural-network-cnn-machine-learning-tutorial/)
