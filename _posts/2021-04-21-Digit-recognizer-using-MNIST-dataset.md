@@ -10,7 +10,9 @@ Recently, I’ve been working on the [Digit Recognizer](https://www.kaggle.com/c
 
 ## About the MNIST database
 The  [MNIST Database](https://en.wikipedia.org/wiki/MNIST_database) (Modified National Institute of Standards and Technology database) is a large database of handwritten digits that is commonly used for training various image processing systems. 
+
 ![alt text](/assets/img/MNIST_blog/traindata.png "MNIST Dataset")
+
 This data set consists of hand drawn numbers from 0 to 9. Each image is 28x28 pixels, for a total of 784 pixels in total. Each pixel has a single pixel-value associated with it, indicating the lightness or darkness of that pixel, with higher numbers meaning darker. This pixel-value is an integer between 0 and 255, inclusive. 
 
 ## Data Preparation
