@@ -10,7 +10,7 @@ Recently, I’ve been working on the [Digit Recognizer](https://www.kaggle.com/c
 
 ## About the MNIST database
 The  [MNIST Database](https://en.wikipedia.org/wiki/MNIST_database) (Modified National Institute of Standards and Technology database) is a large database of handwritten digits that is commonly used for training various image processing systems. 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/traindata.png "MNIST Dataset")
+![alt text](assets/img/MNIST_blog/traindata.png "MNIST Dataset")
 This data set consists of hand drawn numbers from 0 to 9. Each image is 28x28 pixels, for a total of 784 pixels in total. Each pixel has a single pixel-value associated with it, indicating the lightness or darkness of that pixel, with higher numbers meaning darker. This pixel-value is an integer between 0 and 255, inclusive. 
 
 ## Data Preparation
@@ -49,7 +49,7 @@ import seaborn as sns
 sns.countplot(Y) 
 ```
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/data_balance.png "Data Balance")
+![alt text](assets/img/MNIST_blog/data_balance.png "Data Balance")
 
 ## Reshape
 Now, we reshape the data in 3 dimensions to represent an image:
@@ -80,7 +80,7 @@ x_test = tf.keras.utils.normalize(X_test, axis=1)
 ```
 ## Convolution Neural Network (CNN)
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/cnn_banner.png "CNN Banner")
+![alt text](assets/img/MNIST_blog/cnn_banner.png "CNN Banner")
 
 CNN uses their unique properties to distinguish pictures or images. For example:
 When we look at a cat, our brains use features like ears, tail etc define that. CNN does just that. First, let's look at its structure before we get started.
@@ -95,32 +95,32 @@ CNN classification uses the normal neural network to solve the problem. However,
 ## Convolutional Layer
 This layer is the main building block of CNN. It is responsible for perceiving the features of the picture. This layer applies some filters to the image to extract low and high level features in the image. For example, this filter can be a filter that will detect edges. Now let's see how the filter is applied.
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/filter.png "Filter")
+![alt text](assets/img/MNIST_blog/filter.png "Filter")
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/giphy.gif "Convolved_feature from image")
+![alt text](assets/img/MNIST_blog/giphy.gif "Convolved_feature from image")
 
 First, the filter is positioned in the upper left corner of the image. Here, the indices between the two matrices (picture and filter) are multiplied by each other and all results are summed, then the result is stored in the output matrix. Then move this filter to the right by 1 pixel (also known as a "step") and repeat the process. After the end of the 1st line, 2 lines are passed and the operations are repeated. After all operations are completed, an output matrix is created. The reason why the output matrix is 3 × 3 here is because in the 5 × 5 matrix the 3 × 3 filter moves 3 times horizontally and vertically.
 
 ## Non-linearity
 The Non-Linearity layer usually develops after all the Convolutional layers. So why is linearity in the image a problem? The problem is that since all layers can be a linear function, the Neural Network behaves like a single perception, that is, the result can be calculated as a linear combination of outputs. This layer is called the activation layer (Activation Layer) because it uses one of the activation functions. Rectified Linear Unit (ReLU) is one of the most used functions. 
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/reLU.png "ReLU")
+![alt text](assets/img/MNIST_blog/reLU.png "ReLU")
 
 As seen in the picture, ReLU reflects positive inputs as they are, while negative inputs as 0.
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/reLU2.png "ReLU2")
+![alt text](assets/img/MNIST_blog/reLU2.png "ReLU2")
 
 When the ReLu function is applied to the Feature Map, a result as above is produced. Black values in Feature Maps are negative. After the Relu function is applied, the black values are removed and 0 is replaced.
 
 ## Pooling Layer
 This layer is a layer that is often added between successive convolutional layers in CovNet. The task of this layer is to reduce the shear size of the representation and the number of parameters and calculations within the network. In this way, incompatibility in the network is checked. There are many pooling operations, but the most popular is max pooling. There are also average pooling and L2-norm pooling algorithms that work on the same principle.
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/MaxpoolSample2.png "MaxpoolSample2")
+![alt text](assets/img/MNIST_blog/MaxpoolSample2.png "MaxpoolSample2")
 
 ## Flattening Layer
 The task of this layer is simply to prepare the data at the input of the last and most important layer, the Fully Connected Layer. Generally, neural networks receive input data from a one-dimensional array. The data in this neural network are the matrices coming from the Convolutional and Pooling layers are converted into a one-dimensional array.
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/Maxpool_to_flatten.png "Maxpool_to_flatten")
+![alt text](./assets/img/MNIST_blog/Maxpool_to_flatten.png "Maxpool_to_flatten")
 
 ## Fully-Connected Layer
 Fully Connected layers in a neural network are those layers where all the inputs from one layer are connected to every activation unit of the next layer. In most popular machine learning models, the last few layers are fully connected layers which compile the data extracted by previous layers to form the final output. It is the second most time consuming layer second to Convolution Layer.
@@ -183,7 +183,7 @@ print(val_loss, val_acc)
 0.14178943634033203 0.9661904573440552
 ```
 
-![alt text](https://github.com/sleipnir029/sleipnir029.github.io/blob/master/assets/img/MNIST_blog/predictions.png "Prediction")
+![alt text](/assets/img/MNIST_blog/predictions.png "Prediction")
 
 Final evaluation of the model had been done with the dataset from the test.csv file from which it generated a sample_submission.csv file. It was submitted to the kaggle Data Recognizer competition and a score of over 82% which is good enough for this problem as I’ve skipped a few important layers in the CNN. A score of 100% has also been achieved. I should be working on this further to increase the overall score as well as explore a few different approaches.
 
