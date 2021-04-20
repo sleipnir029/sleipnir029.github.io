@@ -59,6 +59,7 @@ Now, we reshape the data in 3 dimensions to represent an image:
 - 28, 28 is height and width
 - 1 is grayscale, if we have coloured we should use 3.
 
+
 ```sh
 X = X.values.reshape(-1, 28,28,1)
 test = test.values.reshape(-1,28,28,1)
@@ -75,6 +76,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_
 For example, there are different colors such as blue, white, black, so we need to normalize the image to convert the colors to black and white. In short, we can say that we will make that picture in black and white (values between 0 and 1).
 - This increases the speed of CNN.
 - The maximum color a picture can take is 255, and we divide this floating by 255.
+
 ```sh
 import tensorflow as tf
 x_train = tf.keras.utils.normalize(X_train, axis=1) 
@@ -92,6 +94,7 @@ When we look at a cat, our brains use features like ears, tail etc define that. 
 - Pooling (Downsampling) Layer - Reduces the number of weights and checks fit
 - Flattening Layer - Prepares data for the Classical Neural Network
 - Fully-Connected Layer - Standard Neural Network used in classification.
+
 
 CNN classification uses the normal neural network to solve the problem. However, up to that part, other layers are used to determine the properties.
 ## Convolutional Layer
