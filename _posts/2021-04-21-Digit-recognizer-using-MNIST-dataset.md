@@ -74,8 +74,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_
 ```
 ## Normalize
 For example, there are different colors such as blue, white, black, so we need to normalize the image to convert the colors to black and white. In short, we can say that we will make that picture in black and white (values between 0 and 1).
+
 - This increases the speed of CNN.
 - The maximum color a picture can take is 255, and we divide this floating by 255.
+
 
 ```sh
 import tensorflow as tf
