@@ -196,17 +196,17 @@ Final evaluation of the model had been done with the dataset from the test.csv f
 
 
 **References:**
-0. [MNIST for Image Classification](https://github.com/sleipnir029/MNIST-for-Image-Classification)
-1. [Convolutional Neural Network (CNN) Tutorial](https://www.kaggle.com/rafetcan/convolutional-neural-network-cnn-tutorial/comments)
-2. [Digit recognizer](https://www.kaggle.com/winternguyen/digit-recognizer)
-3. [Convolutional Neural Network (CNN) basics](https://pythonprogramming.net/convolutional-neural-network-cnn-machine-learning-tutorial/)
-4. [Deep Learning with Python, TensorFlow, and Keras tutorial](https://youtu.be/wQ8BIBpya2k)
-5. [Softmax function](https://en.wikipedia.org/wiki/Softmax_function)
-6. [A Gentle Introduction to the Rectified Linear Unit (ReLU)](https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/#:~:text=The%20rectified%20linear%20activation%20function,otherwise%2C%20it%20will%20output%20zero.)
-7. [A Gentle Introduction to Pooling Layers for Convolutional Neural Networks](https://machinelearningmastery.com/pooling-layers-for-convolutional-neural-networks/)
-8. [Difference Between a Batch and an Epoch in a Neural Network](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/)
-9. [The Hundred-Page Machine Learning Book - Andriy Burkov](http://themlbook.com/)
-10. [Why you learn when you teach](https://zellwk.com/blog/why-you-learn-when-you-teach/)
+1. [MNIST for Image Classification](https://github.com/sleipnir029/MNIST-for-Image-Classification)
+2. [Convolutional Neural Network (CNN) Tutorial](https://www.kaggle.com/rafetcan/convolutional-neural-network-cnn-tutorial/comments)
+3. [Digit recognizer](https://www.kaggle.com/winternguyen/digit-recognizer)
+4. [Convolutional Neural Network (CNN) basics](https://pythonprogramming.net/convolutional-neural-network-cnn-machine-learning-tutorial/)
+5. [Deep Learning with Python, TensorFlow, and Keras tutorial](https://youtu.be/wQ8BIBpya2k)
+6. [Softmax function](https://en.wikipedia.org/wiki/Softmax_function)
+7. [A Gentle Introduction to the Rectified Linear Unit (ReLU)](https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/#:~:text=The%20rectified%20linear%20activation%20function,otherwise%2C%20it%20will%20output%20zero.)
+8. [A Gentle Introduction to Pooling Layers for Convolutional Neural Networks](https://machinelearningmastery.com/pooling-layers-for-convolutional-neural-networks/)
+9. [Difference Between a Batch and an Epoch in a Neural Network](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/)
+10. [The Hundred-Page Machine Learning Book - Andriy Burkov](http://themlbook.com/)
+11. [Why you learn when you teach](https://zellwk.com/blog/why-you-learn-when-you-teach/)
 
 
 
