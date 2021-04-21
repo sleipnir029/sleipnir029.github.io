@@ -6,7 +6,7 @@ color: primary
 description: Meta post containing a brief overview of the Digit Recognizer using MNIST dataset
 ---
 
-Recently, I’ve been working on the [Digit Recognizer](https://www.kaggle.com/c/digit-recognizer/overview) (Image Classification) using the MNIST dataset. To say the least, it’s been pretty overwhelming but captivating with numerous previously unknown subject matter. This article is more of a logbook for my-future-self to track the record of my educational progress. So, here we go….
+Recently, I’ve been working on the [Digit Recognizer](https://www.kaggle.com/c/digit-recognizer/overview) (Image Classification) using the MNIST dataset. To say the least, it’s been pretty overwhelming but captivating with numerous previously unknown subject matter. This article is more of a logbook for my-future-self. So, here we go….
 
 ## About the MNIST database
 The  [MNIST Database](https://en.wikipedia.org/wiki/MNIST_database) (Modified National Institute of Standards and Technology database) is a large database of handwritten digits that is commonly used for training various image processing systems. 
@@ -24,7 +24,7 @@ The digits in MNIST dataset have been size-normalized and centered in a fixed-si
 
 
 ## Load and check the data
-To ensure no data corruption during download or reading from csv file
+To ensure that no data corruption occurs during download or reading from csv file
 
 ```sh
 import pandas as pd
@@ -44,7 +44,7 @@ freq        784
 dtype: object
 ```
 
-Check if the data is balanced or not
+Check if the data is balanced or not (comparing the total dataset for equal distribution of labled data)
 
 ```sh
 import seaborn as sns
@@ -66,7 +66,7 @@ test = test.values.reshape(-1,28,28,1)
 ```
 
 ## Train test split
-We had two csv files namely train.csv and test.csv. But we need a validation dataset to evaluate the model predictions and learn from mistakes. It helps to tune its parameters depending on the frequent evaluation results on the validation set. So we split the training data set into two portions, 70% train data and 30% validation data hence the *text_size=0.3* and the *[random_state=42](https://www.youtube.com/watch?v=aboZctrHfK8)* to ensure that the splits that we’ve generated are reproducible. Scikit-learn uses random permutations to generate the splits. The random state that we’ve provided is used as a seed to the random number generator.
+We had two csv files: train.csv and test.csv. But we need a validation dataset to evaluate the model predictions and learn from mistakes. It helps us to tune the model's parameters depending on the frequent evaluation results on the validation set. So we split the training data set into two portions, 70% train data and 30% validation data hence the *test_size=0.3* and the *[random_state=42](https://www.youtube.com/watch?v=aboZctrHfK8)* to ensure that the splits that we’ve generated are reproducible. Scikit-learn uses random permutations to generate the splits. The random state that we’ve provided is used as a seed to the random number generator.
 
 ```sh
 from sklearn.model_selection import train_test_split
@@ -84,12 +84,11 @@ import tensorflow as tf
 x_train = tf.keras.utils.normalize(X_train, axis=1) 
 x_test = tf.keras.utils.normalize(X_test, axis=1)
 ```
-## Convolution Neural Network (CNN)
+## Convolutional Neural Network (CNN)
 
 ![alt text](/assets/img/MNIST_blog/cnn_banner.png "CNN Banner")
 
-CNN uses their unique properties to distinguish pictures or images. For example:
-When we look at a cat, our brains use features like ears, tail etc define that. CNN does just that. First, let's look at its structure before we get started.
+CNN uses their unique properties to distinguish pictures or images. For example: When we look at a cat, our brains use features like ears, tail etc to identify/define the cat, CNN does just that. First, let's look at its structure before we get started.
 
 - Convolutional Layer - Used to determine features
 - Non-Linearity Layer - Introduction of nonlinearity to the system
@@ -100,7 +99,7 @@ When we look at a cat, our brains use features like ears, tail etc define that. 
 
 CNN classification uses the normal neural network to solve the problem. However, up to that part, other layers are used to determine the properties.
 ## Convolutional Layer
-This layer is the main building block of CNN. It is responsible for perceiving the features of the picture. This layer applies some filters to the image to extract low and high level features in the image. For example, this filter can be a filter that will detect edges. Now let's see how the filter is applied.
+This layer is the main building block of CNN. It is responsible for perceiving the features of the picture. This layer applies some filters to the image to extract low and high level features in the image. For example, this filter can be a filter that will detect edges.
 
 ![alt text](/assets/img/MNIST_blog/filter.png "Filter")
 
@@ -109,7 +108,7 @@ This layer is the main building block of CNN. It is responsible for perceiving t
 First, the filter is positioned in the upper left corner of the image. Here, the indices between the two matrices (picture and filter) are multiplied by each other and all results are summed, then the result is stored in the output matrix. Then move this filter to the right by 1 pixel (also known as a "step") and repeat the process. After the end of the 1st line, 2 lines are passed and the operations are repeated. After all operations are completed, an output matrix is created. The reason why the output matrix is 3 × 3 here is because in the 5 × 5 matrix the 3 × 3 filter moves 3 times horizontally and vertically.
 
 ## Non-linearity
-The Non-Linearity layer usually develops after all the Convolutional layers. So why is linearity in the image a problem? The problem is that since all layers can be a linear function, the Neural Network behaves like a single perception, that is, the result can be calculated as a linear combination of outputs. This layer is called the activation layer (Activation Layer) because it uses one of the activation functions. Rectified Linear Unit (ReLU) is one of the most used functions. 
+The Non-Linearity layer usually develops after all the Convolutional layers. So why is linearity in the image a problem? The problem is that since all layers can be a linear function, the Neural Network behaves like a single perceptron, that is, the result can be calculated as a linear combination of outputs. This layer is called the activation layer (Activation Layer) because it uses one of the activation functions. [Rectified Linear Unit] (https://www.kaggle.com/dansbecker/rectified-linear-units-relu-in-deep-learning) (ReLU) is one of the most used functions. 
 
 ![alt text](/assets/img/MNIST_blog/reLU.png "ReLU")
 
@@ -120,7 +119,7 @@ As seen in the picture, ReLU reflects positive inputs as they are, while negativ
 When the ReLu function is applied to the Feature Map, a result as above is produced. Black values in Feature Maps are negative. After the Relu function is applied, the black values are removed and 0 is replaced.
 
 ## Pooling Layer
-This layer is a layer that is often added between successive convolutional layers in CovNet. The task of this layer is to reduce the shear size of the representation and the number of parameters and calculations within the network. In this way, incompatibility in the network is checked. There are many pooling operations, but the most popular is max pooling. There are also average pooling and L2-norm pooling algorithms that work on the same principle.
+This layer is a layer that is often added between successive convolutional layers in ConvNet. The task of this layer is to reduce the shear size of the representation and the number of parameters and calculations within the network. In this way, incompatibility in the network is checked. There are many pooling operations, but the most popular is max pooling. There are also average pooling and L2-norm pooling algorithms that work on the same principle.
 
 ![alt text](/assets/img/MNIST_blog/MaxpoolSample2.png "MaxpoolSample2")
 
@@ -130,9 +129,9 @@ The task of this layer is simply to prepare the data at the input of the last an
 ![alt text](/assets/img/MNIST_blog/Maxpool_to_flatten.png "Maxpool_to_flatten")
 
 ## Fully-Connected Layer
-Fully Connected layers in a neural network are those layers where all the inputs from one layer are connected to every activation unit of the next layer. In most popular machine learning models, the last few layers are fully connected layers which compile the data extracted by previous layers to form the final output. It is the second most time consuming layer second to Convolution Layer.
+Fully Connected layers in a neural network are those layers where all the inputs from one layer are connected to every activation unit of the next layer. In most popular machine learning models, the last few layers are fully connected layers which compile the data extracted by previous layers to form the final output. It is the second most time consuming layer second to Convolutional Layer.
 
-**Note:** In this model I’ve used the flattening layer and Fully-Connected layer. Convolutional layer, Pooling layer weren’t used.
+**Note:** In this model I’ve only used the flattening layer and Fully-Connected layer. Convolutional layer, Pooling layer weren’t used.
 
 ## Implementing with keras
 Building the model using keras library
@@ -192,7 +191,9 @@ print(val_loss, val_acc)
 
 ![alt text](/assets/img/MNIST_blog/predictions.png "Prediction")
 
-Final evaluation of the model had been done with the dataset from the test.csv file from which it generated a sample_submission.csv file. It was submitted to the kaggle Data Recognizer competition and a score of over 82% which is good enough for this problem as I’ve skipped a few important layers in the CNN. A score of 100% has also been achieved. I should be working on this further to increase the overall score as well as explore a few different approaches.
+The final evaluation of the model had been tested against the dataset from the test.csv file from which it generated a sample_submission.csv file. It was submitted to the kaggle's [Data Recognizer](https://www.kaggle.com/c/digit-recognizer) competition and a score of over 82% was achieved. It's well enough for this problem as I’ve skipped a few important layers in the CNN. A score of 100% has also been achieved. I should be working on this further to increase the overall score as well as explore a few different approaches.
+
+✨✨ **Peace** ✨✨
 
 
 **References:**
@@ -207,6 +208,7 @@ Final evaluation of the model had been done with the dataset from the test.csv f
 9. [Difference Between a Batch and an Epoch in a Neural Network](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/)
 10. [The Hundred-Page Machine Learning Book - Andriy Burkov](http://themlbook.com/)
 11. [Why you learn when you teach](https://zellwk.com/blog/why-you-learn-when-you-teach/)
+12. [Simple MNIST convnet](https://keras.io/examples/vision/mnist_convnet/)
 
 
 
