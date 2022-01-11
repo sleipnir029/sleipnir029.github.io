@@ -44,7 +44,7 @@ linkedin:
 itchio:
   url   : https://
   icon  : fab fa-itch-io
-  color : 222222
+  color : c2343b
 
 medium:
   url   : https://medium.com/@
