@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content=""Tell me and I forget. Teach me and I remember. Involve me and I learn."">
+
+  <title>Rakibuzzaman Rahat</title>
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/241/man-factory-worker_1f468-200d-1f3ed.png">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-3">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/"><h5><b>Rakibuzzaman Rahat</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link active" href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/experience/">Experience</a>
+
+      <a class="nav-item nav-link " href="/resume/">Resume</a>
+
+      
+
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 post">
+  <h1><b>Digit Recognizer using MNIST dataset</b></h1>
+
+<p class="post-metadata text-muted">
+  21 April 2021 -
+  <b>10 mins read time</b>
+
+  <br>Tags:
+  
+  <a class="text-decoration-none no-underline" href="/blog/tags#machine-learning">
+    <span class="tag badge badge-pill text-primary border border-primary">Machine Learning</span>
+  </a>
+  
+  <a class="text-decoration-none no-underline" href="/blog/tags#kaggle">
+    <span class="tag badge badge-pill text-primary border border-primary">kaggle</span>
+  </a>
+  
+  <a class="text-decoration-none no-underline" href="/blog/tags#mnist">
+    <span class="tag badge badge-pill text-primary border border-primary">MNIST</span>
+  </a>
+  
+  <a class="text-decoration-none no-underline" href="/blog/tags#neural-network">
+    <span class="tag badge badge-pill text-primary border border-primary">Neural Network</span>
+  </a>
+  </p>
+
+<p>Recently, I’ve been working on the <a href="https://www.kaggle.com/c/digit-recognizer/overview">Digit Recognizer</a> (Image Classification) using the MNIST dataset. To say the least, it’s been pretty overwhelming but captivating with numerous previously unknown subject matter. This article is more of a logbook for my-future-self. So, here we go….</p>
+
+<h2 id="about-the-mnist-database">About the MNIST database</h2>
+<p>The  <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST Database</a> (Modified National Institute of Standards and Technology database) is a large database of handwritten digits that is commonly used for training various image processing systems.</p>
+
+<p><img src="/assets/img/MNIST_blog/traindata.png" alt="alt text" title="MNIST Dataset" /></p>
+
+<p>This data set consists of hand drawn numbers from 0 to 9. Each image is 28x28 pixels, for a total of 784 pixels in total. Each pixel has a single pixel-value associated with it, indicating the lightness or darkness of that pixel, with higher numbers meaning darker. This pixel-value is an integer between 0 and 255, inclusive.</p>
+
+<h2 id="data-preparation">Data Preparation</h2>
+<p>The digits in MNIST dataset have been size-normalized and centered in a fixed-size image. It is a good database for people who want to try learning techniques and pattern recognition methods on real-world data while spending minimal efforts on preprocessing and formatting. But to use the data for the model we have to follow a few steps,</p>
+<ul>
+  <li>Load and check data</li>
+  <li>Normalization</li>
+  <li>Reshape</li>
+  <li>Train test split</li>
+</ul>
+
+<h2 id="load-and-check-the-data">Load and check the data</h2>
+<p>To ensure that no data corruption occurs during download or reading from csv file</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+train <span class="o">=</span> pd.read_csv<span class="o">(</span><span class="s1">'/train.csv'</span><span class="o">)</span>  
+<span class="nb">test</span> <span class="o">=</span> pd.read_csv<span class="o">(</span><span class="s1">'/test.csv'</span><span class="o">)</span>
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X <span class="o">=</span> train.drop<span class="o">(</span><span class="s1">'label'</span>, <span class="nv">axis</span><span class="o">=</span>1<span class="o">)</span>
+Y <span class="o">=</span> train[<span class="s1">'label'</span><span class="o">]</span>
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X.isnull<span class="o">()</span>.any<span class="o">()</span>.describe<span class="o">()</span>
+count       784
+unique        1
+top       False
+freq        784
+dtype: object
+</code></pre></div></div>
+
+<p>Check if the data is balanced or not (comparing the total dataset for equal distribution of labled data)</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import seaborn as sns
+sns.countplot<span class="o">(</span>Y<span class="o">)</span> 
+</code></pre></div></div>
+
+<p><img src="/assets/img/MNIST_blog/data_balance.png" alt="alt text" title="Data Balance" /></p>
+
+<h2 id="reshape">Reshape</h2>
+<p>Now, we reshape the data in 3 dimensions to represent an image:</p>
+<ul>
+  <li>-1 keeps the number of data as it, values convert the dataframe to arrays</li>
+  <li>28, 28 is height and width</li>
+  <li>1 is grayscale, if we have coloured we should use 3.</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X <span class="o">=</span> X.values.reshape<span class="o">(</span><span class="nt">-1</span>, 28,28,1<span class="o">)</span>
+<span class="nb">test</span> <span class="o">=</span> test.values.reshape<span class="o">(</span><span class="nt">-1</span>,28,28,1<span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="train-test-split">Train test split</h2>
+<p>We had two csv files: train.csv and test.csv. But we need a validation dataset to evaluate the model predictions and learn from mistakes. It helps us to tune the model’s parameters depending on the frequent evaluation results on the validation set. So we split the training data set into two portions, 70% train data and 30% validation data hence the <em>test_size=0.3</em> and the <em><a href="https://www.youtube.com/watch?v=aboZctrHfK8">random_state=42</a></em> to ensure that the splits that we’ve generated are reproducible. Scikit-learn uses random permutations to generate the splits. The random state that we’ve provided is used as a seed to the random number generator.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test <span class="o">=</span> train_test_split<span class="o">(</span>X, Y, <span class="nv">test_size</span><span class="o">=</span>0.3, <span class="nv">random_state</span><span class="o">=</span>42<span class="o">)</span>
+</code></pre></div></div>
+<h2 id="normalize">Normalize</h2>
+<p>For example, there are different colors such as blue, white, black, so we need to normalize the image to convert the colors to black and white. In short, we can say that we will make that picture in black and white (values between 0 and 1).</p>
+
+<ul>
+  <li>This increases the speed of CNN.</li>
+  <li>The maximum color a picture can take is 255, and we divide this floating by 255.</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import tensorflow as tf
+x_train <span class="o">=</span> tf.keras.utils.normalize<span class="o">(</span>X_train, <span class="nv">axis</span><span class="o">=</span>1<span class="o">)</span> 
+x_test <span class="o">=</span> tf.keras.utils.normalize<span class="o">(</span>X_test, <span class="nv">axis</span><span class="o">=</span>1<span class="o">)</span>
+</code></pre></div></div>
+<h2 id="convolutional-neural-network-cnn">Convolutional Neural Network (CNN)</h2>
+
+<p><img src="/assets/img/MNIST_blog/cnn_banner.png" alt="alt text" title="CNN Banner" /></p>
+
+<p>CNN uses their unique properties to distinguish pictures or images. For example: When we look at a cat, our brains use features like ears, tail etc to identify/define the cat, CNN does just that. First, let’s look at its structure before we get started.</p>
+
+<ul>
+  <li>Convolutional Layer - Used to determine features</li>
+  <li>Non-Linearity Layer - Introduction of nonlinearity to the system</li>
+  <li>Pooling (Downsampling) Layer - Reduces the number of weights and checks fit</li>
+  <li>Flattening Layer - Prepares data for the Classical Neural Network</li>
+  <li>Fully-Connected Layer - Standard Neural Network used in classification.</li>
+</ul>
+
+<p>CNN classification uses the normal neural network to solve the problem. However, up to that part, other layers are used to determine the properties.</p>
+<h2 id="convolutional-layer">Convolutional Layer</h2>
+<p>This layer is the main building block of CNN. It is responsible for perceiving the features of the picture. This layer applies some filters to the image to extract low and high level features in the image. For example, this filter can be a filter that will detect edges.</p>
+
+<p><img src="/assets/img/MNIST_blog/filter.png" alt="alt text" title="Filter" /></p>
+
+<p><img src="/assets/img/MNIST_blog/giphy.gif" alt="alt text" title="Convolved_feature from image" /></p>
+
+<p>First, the filter is positioned in the upper left corner of the image. Here, the indices between the two matrices (picture and filter) are multiplied by each other and all results are summed, then the result is stored in the output matrix. Then move this filter to the right by 1 pixel (also known as a “step”) and repeat the process. After the end of the 1st line, 2 lines are passed and the operations are repeated. After all operations are completed, an output matrix is created. The reason why the output matrix is 3 × 3 here is because in the 5 × 5 matrix the 3 × 3 filter moves 3 times horizontally and vertically.</p>
+
+<h2 id="non-linearity">Non-linearity</h2>
+<p>The Non-Linearity layer usually develops after all the Convolutional layers. So why is linearity in the image a problem? The problem is that since all layers can be a linear function, the Neural Network behaves like a single perceptron, that is, the result can be calculated as a linear combination of outputs. This layer is called the activation layer (Activation Layer) because it uses one of the activation functions. [Rectified Linear Unit] (https://www.kaggle.com/dansbecker/rectified-linear-units-relu-in-deep-learning) (ReLU) is one of the most used functions.</p>
+
+<p><img src="/assets/img/MNIST_blog/reLU.png" alt="alt text" title="ReLU" /></p>
+
+<p>As seen in the picture, ReLU reflects positive inputs as they are, while negative inputs as 0.</p>
+
+<p><img src="/assets/img/MNIST_blog/reLU2.png" alt="alt text" title="ReLU2" /></p>
+
+<p>When the ReLu function is applied to the Feature Map, a result as above is produced. Black values in Feature Maps are negative. After the Relu function is applied, the black values are removed and 0 is replaced.</p>
+
+<h2 id="pooling-layer">Pooling Layer</h2>
+<p>This layer is a layer that is often added between successive convolutional layers in ConvNet. The task of this layer is to reduce the shear size of the representation and the number of parameters and calculations within the network. In this way, incompatibility in the network is checked. There are many pooling operations, but the most popular is max pooling. There are also average pooling and L2-norm pooling algorithms that work on the same principle.</p>
+
+<p><img src="/assets/img/MNIST_blog/MaxpoolSample2.png" alt="alt text" title="MaxpoolSample2" /></p>
+
+<h2 id="flattening-layer">Flattening Layer</h2>
+<p>The task of this layer is simply to prepare the data at the input of the last and most important layer, the Fully Connected Layer. Generally, neural networks receive input data from a one-dimensional array. The data in this neural network are the matrices coming from the Convolutional and Pooling layers are converted into a one-dimensional array.</p>
+
+<p><img src="/assets/img/MNIST_blog/Maxpool_to_flatten.png" alt="alt text" title="Maxpool_to_flatten" /></p>
+
+<h2 id="fully-connected-layer">Fully-Connected Layer</h2>
+<p>Fully Connected layers in a neural network are those layers where all the inputs from one layer are connected to every activation unit of the next layer. In most popular machine learning models, the last few layers are fully connected layers which compile the data extracted by previous layers to form the final output. It is the second most time consuming layer second to Convolutional Layer.</p>
+
+<p><strong>Note:</strong> In this model I’ve only used the flattening layer and Fully-Connected layer. Convolutional layer, Pooling layer weren’t used.</p>
+
+<h2 id="implementing-with-keras">Implementing with keras</h2>
+<p>Building the model using keras library</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Flatten layer and Fully-Connected layer</span>
+model <span class="o">=</span> tf.keras.models.Sequential<span class="o">()</span>
+model.add<span class="o">(</span>tf.keras.layers.Flatten<span class="o">())</span>
+model.add<span class="o">(</span>tf.keras.layers.Dense<span class="o">(</span>128, <span class="nv">activation</span><span class="o">=</span>tf.nn.relu<span class="o">))</span>
+model.add<span class="o">(</span>tf.keras.layers.Dense<span class="o">(</span>128, <span class="nv">activation</span><span class="o">=</span>tf.nn.relu<span class="o">))</span>
+model.add<span class="o">(</span>tf.keras.layers.Dense<span class="o">(</span>10, <span class="nv">activation</span><span class="o">=</span>tf.nn.softmax<span class="o">))</span>
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Model compile</span>
+model.compile<span class="o">(</span><span class="nv">optimizer</span><span class="o">=</span><span class="s1">'adam'</span>,
+            <span class="nv">loss</span><span class="o">=</span><span class="s1">'sparse_categorical_crossentropy'</span>,
+            <span class="nv">metrics</span><span class="o">=[</span><span class="s1">'accuracy'</span><span class="o">])</span>
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Fit the model</span>
+model.fit<span class="o">(</span>x_train, y_train, <span class="nv">epochs</span><span class="o">=</span>10<span class="o">)</span>Epoch 1/10
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>919/919 <span class="o">[==============================]</span> - 3s 3ms/step - loss: 0.6223 - accuracy: 0.8232
+Epoch 2/10
+919/919 <span class="o">[==============================]</span> - 2s 3ms/step - loss: 0.1519 - accuracy: 0.9536
+Epoch 3/10
+919/919 <span class="o">[==============================]</span> - 2s 3ms/step - loss: 0.0990 - accuracy: 0.9684
+Epoch 4/10
+919/919 <span class="o">[==============================]</span> - 2s 3ms/step - loss: 0.0695 - accuracy: 0.9784
+Epoch 5/10
+919/919 <span class="o">[==============================]</span> - 3s 3ms/step - loss: 0.0448 - accuracy: 0.9847
+Epoch 6/10
+919/919 <span class="o">[==============================]</span> - 3s 3ms/step - loss: 0.0345 - accuracy: 0.9887
+Epoch 7/10
+919/919 <span class="o">[==============================]</span> - 3s 3ms/step - loss: 0.0266 - accuracy: 0.9915
+Epoch 8/10
+919/919 <span class="o">[==============================]</span> - 2s 3ms/step - loss: 0.0218 - accuracy: 0.9928
+Epoch 9/10
+919/919 <span class="o">[==============================]</span> - 2s 3ms/step - loss: 0.0152 - accuracy: 0.9955
+Epoch 10/10
+919/919 <span class="o">[==============================]</span> - 2s 3ms/step - loss: 0.0147 - accuracy: 0.9944
+&lt;tensorflow.python.keras.callbacks.History at 0x7fe5170fb160&gt;
+</code></pre></div></div>
+<p>More about this can be found in the <a href="https://www.tensorflow.org/api_docs/python/tf/keras">keras documentation</a>.</p>
+
+<h2 id="evaluate-the-model">Evaluate the model</h2>
+<p>The model is evaluated with the 30% train data previously splitted as test data</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val_loss, val_acc <span class="o">=</span> model.evaluate<span class="o">(</span>x_test, y_test<span class="o">)</span>
+print<span class="o">(</span>val_loss, val_acc<span class="o">)</span>
+
+394/394 <span class="o">[==============================]</span> - 1s 1ms/step - loss: 0.1418 - accuracy: 0.9662
+0.14178943634033203 0.9661904573440552
+</code></pre></div></div>
+
+<p><img src="/assets/img/MNIST_blog/predictions.png" alt="alt text" title="Prediction" /></p>
+
+<p>The final evaluation of the model had been tested against the dataset from the test.csv file from which it generated a sample_submission.csv file. It was submitted to the kaggle’s <a href="https://www.kaggle.com/c/digit-recognizer">Data Recognizer</a> competition and a score of over 82% was achieved. It’s well enough for this problem as I’ve skipped a few important layers in the CNN. A score of 100% has also been achieved. I should be working on this further to increase the overall score as well as explore a few different approaches.</p>
+
+<p>✨✨ <strong>Peace</strong> ✨✨</p>
+
+<p><strong>References:</strong></p>
+<ol>
+  <li><a href="https://github.com/sleipnir029/MNIST-for-Image-Classification">MNIST for Image Classification</a></li>
+  <li><a href="https://www.kaggle.com/rafetcan/convolutional-neural-network-cnn-tutorial/comments">Convolutional Neural Network (CNN) Tutorial</a></li>
+  <li><a href="https://www.kaggle.com/winternguyen/digit-recognizer">Digit recognizer</a></li>
+  <li><a href="https://pythonprogramming.net/convolutional-neural-network-cnn-machine-learning-tutorial/">Convolutional Neural Network (CNN) basics</a></li>
+  <li><a href="https://youtu.be/wQ8BIBpya2k">Deep Learning with Python, TensorFlow, and Keras tutorial</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Softmax_function">Softmax function</a></li>
+  <li><a href="https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/#:~:text=The%20rectified%20linear%20activation%20function,otherwise%2C%20it%20will%20output%20zero.">A Gentle Introduction to the Rectified Linear Unit (ReLU)</a></li>
+  <li><a href="https://machinelearningmastery.com/pooling-layers-for-convolutional-neural-networks/">A Gentle Introduction to Pooling Layers for Convolutional Neural Networks</a></li>
+  <li><a href="https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/">Difference Between a Batch and an Epoch in a Neural Network</a></li>
+  <li><a href="http://themlbook.com/">The Hundred-Page Machine Learning Book - Andriy Burkov</a></li>
+  <li><a href="https://zellwk.com/blog/why-you-learn-when-you-teach/">Why you learn when you teach</a></li>
+  <li><a href="https://keras.io/examples/vision/mnist_convnet/">Simple MNIST convnet</a></li>
+</ol>
+
+
+
+<p>
+  <br>
+  
+</p>
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:rahat.zaman029@gmail.com"
+    target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-2x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/rakibuzzamanrahat"
+    target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-2x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/sleipnir029"
+    target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-2x"></i>
+    </a><a class="social mx-1"  href="https://www.facebook.com/rakibuzzamanrahat"
+    target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#3b5998'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-facebook fa-2x"></i>
+    </a><a class="social mx-1"  href="https://www.twitter.com/rakibuzzaman_"
+    target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-2x"></i>
+    </a><a class="social mx-1"  href="https://zeezbitstudios.itch.io"
+    target="_blank"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#c2343b'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-itch-io fa-2x"></i>
+    </a>
+
+</div>
+
+  <br>
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> Last updated: January, 2022
+  </small>
+  <br>
+  <small class="text-muted mb-2">
+    <i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh
+
+</footer>
+
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165410052-1"></script>
+
+ <script>
+     window.dataLayer = window.dataLayer || [];
+
+     function gtag() {
+         dataLayer.push(arguments);
+     }
+     gtag('js', new Date());
+     gtag('config', 'UA-165410052-1');
+ </script>
+
+</body>
+
+</html>
