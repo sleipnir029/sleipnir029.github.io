@@ -22,7 +22,7 @@ The **end goal** of the project is to build a dashboard that is in sync with upd
 
 ### Exploratory Data Analysis
 
-The data is exported as a csv file instead of directly linking the google sheet due to the feature limitations on Tableau Public. The two sheets *confirmed cases* and *deaths* were combined inside Tableau. There were a few feature columns that was omitted (FIPS-only used for USA, table names).
+The data is exported as a csv file instead of directly linking the google sheet. The two sheets inside the xlsx file *confirmed cases* and *deaths* were combined inside Tableau. There were a few feature columns that was omitted (FIPS-only used for USA, table names).
 
 Three new features were generated using the Tableau **Calculated field** option. These are:
 1. Total confirmed cases (#)
