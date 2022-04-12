@@ -39,6 +39,8 @@
 
       <a class="nav-item nav-link " href="/experience/">Experience</a>
 
+      <a class="nav-item nav-link active" href="/projects/">Projects</a>
+
       <a class="nav-item nav-link " href="/resume/">Resume</a>
 
       
@@ -48,7 +50,51 @@
 
 </nav>
   <div class="col-lg-10 mx-auto mt-5 post">
-  
+  <h1 id="covid-19-data-analysis">Covid-19 Data Analysis</h1>
+
+<p>This a data visualisation project on Covid-19 dataset. This data contains the total confirmed cases and deaths as of <strong>4th April, 2020</strong> worldwide. You can download the dataset <a href="https://docs.google.com/spreadsheets/d/1wt3I4--yBMrcQfR_VKAmAvEnW2dyF6h9VE_EXtNEFs4/edit#gid=1638746837">here</a>.</p>
+
+<p>Before jumping on the analysis, a few decisions were taken and these are:</p>
+<ul>
+  <li>Availability of the data.</li>
+  <li>Visualisation tool(s).</li>
+  <li>End goal of the project.</li>
+</ul>
+
+<p>Regarding <strong>availability</strong> of the data, many forms of Covid-19 data is available on the internet. I have used the <a href="https://docs.google.com/spreadsheets/d/1wt3I4--yBMrcQfR_VKAmAvEnW2dyF6h9VE_EXtNEFs4/edit#gid=1638746837">data</a> mentioned above.</p>
+
+<p>The <strong>visualisation tool</strong> I have used here is <a href="https://public.tableau.com/en-us/s/">Tableau Public</a>. Tableau is one of the foremost visualisation tools used in the industry. It provides real time data analysis from one or more sources. It can cater for big datasets.</p>
+
+<p>The <strong>end goal</strong> of the project is to build a dashboard that is in sync with updated data in real time.</p>
+
+<h3 id="exploratory-data-analysis">Exploratory Data Analysis</h3>
+
+<p>The data is exported as a csv file instead of directly linking the google sheet due to the feature limitations on Tableau Public. The two sheets <em>confirmed cases</em> and <em>deaths</em> were combined inside Tableau. There were a few feature columns that was omitted (FIPS-only used for USA, table names).</p>
+
+<p>Three new features were generated using the Tableau <strong>Calculated field</strong> option. These are:</p>
+<ol>
+  <li>Total confirmed cases (#)</li>
+  <li>Total deaths (#)</li>
+  <li>Mortality rates (%)</li>
+</ol>
+
+<p><br /></p>
+
+<p><img src="../assets/img/covid_19_dashboard.png" alt="alt text" title="Covid-19 dashboard" /></p>
+
+<p><br /></p>
+
+<blockquote>
+  <p>While filtering by <strong>Country</strong>, there was an attribute namely <em>Curise ship</em>. It indicates the number of people that were comfirmed cases (734) and had died (14) on a cruise ship. To indicate that on the world map I have used the location near the <strong>Caribbean Islands</strong> to mark the most used cruise ship routes.</p>
+</blockquote>
+
+<p><br /></p>
+
+<p><img src="../assets/img/major_cruises_heatmap.png" alt="alt text" title="Major cruises heat map" /></p>
+
+<p><br /></p>
+
+<p>After that I have used the data and features to build the dashboard. You can view the ineractive dashboard right <a href="https://public.tableau.com/app/profile/rakibuzzaman.rahat6846/viz/Covid-19dataanalysis_16497710596810/Dashboard1">here</a>. Please feel free to provide feedbacks. For more visualisation visit this <a href="https://public.tableau.com/app/profile/rakibuzzaman.rahat6846">link</a>.</p>
 
 </div>
   </main>
@@ -103,7 +149,7 @@
 
   <br>
   <small class="text-muted mb-2">
-    <i class="fas fa-code"></i> Last updated: January, 2022
+    <i class="fas fa-code"></i> Last updated: April, 2022
   </small>
   <br>
   <small class="text-muted mb-2">
