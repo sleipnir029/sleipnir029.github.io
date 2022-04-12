@@ -1,11 +1,11 @@
 ---
-name: Covid-19 Data Analysis
-tools: [Tableau Public, Data Visualisation]
+name: Covid-19 Data Visualization
+tools: [Tableau Public, Data Visualization]
 image: /assets/img/covid_19_dashboard.png 
 description: This is a data visualisation on the Covid-19 data using Tableau.
 ---
 
-# Covid-19 Data Analysis 
+# Covid-19 Data Visualization
 
 This a data visualisation project on Covid-19 dataset. This data contains the total confirmed cases and deaths as of **4th April, 2020** worldwide. You can download the dataset [here](https://docs.google.com/spreadsheets/d/1wt3I4--yBMrcQfR_VKAmAvEnW2dyF6h9VE_EXtNEFs4/edit#gid=1638746837).
 
