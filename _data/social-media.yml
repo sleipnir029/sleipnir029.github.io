@@ -94,9 +94,9 @@ youtube:
 upwork:
   url   : https://www.upwork.com/
   icon  : fas fa-briefcase
-  color : 0d69af
+  color : 6fda44
 
 artstation:
   url   : https://www.artstation.com/
-  icon  : fas fa-artstation
+  icon  : fab fa-artstation
   color : 0d69af
