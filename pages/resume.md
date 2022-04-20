@@ -5,7 +5,7 @@ permalink: /resume/
 weight: 6
 ---
 <body style="margin:0px;padding:0px;overflow:hidden">
-    <iframe src="https://drive.google.com/file/d/13oxLtUwYhe3slJFRKoLTIxqc872Hoq6g/preview" height="768"
+    <iframe src="https://drive.google.com/file/d/13XRe7SEZ_qL7CEc3BIAWRvnZpUXSSb8A/preview" height="768"
     style="position:relative; width:100%; border:none;" frameborder="0"></iframe>
 </body>
 
