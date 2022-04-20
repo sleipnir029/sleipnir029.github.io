@@ -1,10 +1,10 @@
 ---
-title: Digit Recognizer using MNIST dataset
-tags: [Machine Learning, kaggle, MNIST, Neural Network]
-style: border
-color: primary
-description: Meta post containing a brief overview of the Digit Recognizer using MNIST dataset
+name: Hand Written Digit Recognizer
+tools: [Python, pandas, Tensorflow]
+image: /assets/img/MNIST_blog/traindata.png
+description: A machine learning model to recognize hand written digits.
 ---
+# Hand Written Digit Recognizer Using MNIST Dataset
 
 Recently, I’ve been working on the [Digit Recognizer](https://www.kaggle.com/c/digit-recognizer/overview) (Image Classification) using the MNIST dataset. To say the least, it’s been pretty overwhelming but captivating with numerous previously unknown subject matter. This article is more of a logbook for my-future-self. So, here we go….
 
