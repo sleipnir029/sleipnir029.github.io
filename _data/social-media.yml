@@ -95,3 +95,8 @@ upwork:
   url   : https://www.upwork.com/
   icon  : fas fa-briefcase
   color : 0d69af
+
+artstation:
+  url   : https://www.artstation.com/
+  icon  : fas fa-artstation
+  color : 0d69af
