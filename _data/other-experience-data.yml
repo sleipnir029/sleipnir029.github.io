@@ -1,4 +1,11 @@
-
+- place: <a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios.</a>
+  logo: "../assets/img/z2_.png"
+  position: Founder | Indie Game Dev 
+  from: May 2019
+  to: Present
+  description:  An Indie Game Development, focused on creating and
+                producing high-quality originals. Specialised in making
+                2D games.
 
 #- place: <a href="https://www.traanchitro.com/" target="_blank">Traan Chitro</a>
  # logo: "../assets/img/other-logos/tc.png"
