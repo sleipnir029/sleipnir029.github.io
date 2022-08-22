@@ -1,3 +1,12 @@
+- place: <a href="https://http://www.darkkak.com/" target="_blank">Dark Kak.</a>
+  logo: "../assets/img/Dark Kak.jpg"
+  position: Game Developer & Coordinator 
+  from: August 2022
+  to: Present
+  description:  A game development initiative, focused on creating
+                game-based simulation game to help youth educate in 
+                different aspects of life.
+
 - place: <a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios.</a>
   logo: "../assets/img/z2_.png"
   position: Founder | Indie Game Dev 
