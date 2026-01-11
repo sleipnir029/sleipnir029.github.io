@@ -100,3 +100,8 @@ artstation:
   url   : https://www.artstation.com/
   icon  : fab fa-artstation
   color : 0d69af
+
+bluesky:
+  url   : https://bsky.app/
+  icon  : fa-brands fa-bluesky
+  color : 1da1f2
