@@ -102,6 +102,6 @@ artstation:
   color : 0d69af
 
 bluesky:
-  url   : https://bsky.app/
+  url   : https://bsky.app/profile/
   icon  : fa-brands fa-bluesky
   color : 1da1f2
