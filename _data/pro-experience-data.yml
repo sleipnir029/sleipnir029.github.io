@@ -1,4 +1,14 @@
-- place: <a href="https://www.unilever.com.bd/" target="_blank">Unilever Bangladesh (Pureit).</a>
+- place: <a href="https://www.uniper.energy/" target="_blank">Uniper</a>
+  logo: "../assets/img/uniper.png"
+  position: Working Student | AI and Automation
+  from: March 2025
+  to: Present
+  description:  Uniper is a leading international energy company headquartered in Düsseldorf, Germany,
+                playing a key role in securing energy supply across Europe. Uniper focuses on reliable power generation,
+                energy trading, and the transformation toward a low-carbon energy system, with strong investments in hydrogen,
+                renewables, and energy storage.
+
+- place: <a href="https://www.unilever.com.bd/" target="_blank">Unilever Bangladesh (Pureit)</a>
   logo: "../assets/img/ula.svg"
   position: CRM System Lead
   from: June 2023
@@ -8,7 +18,7 @@
                 Consumer First, it's the market leader in it's segment.
 
 
-- place: <a href="http://www.darkkak.com/" target="_blank">Dark Kak.</a>
+- place: <a href="http://www.darkkak.com/" target="_blank">Dark Kak</a>
   logo: "../assets/img/Dark Kak - New.jpeg"
   position: Game Developer & Coordinator 
   from: August 2022
@@ -17,7 +27,7 @@
                 game-based simulation game to help youth educate in 
                 different aspects of life.
 
-#- place: <a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios.</a>
+#- place: <a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios</a>
 #  logo: "../assets/img/z2_.png"
 #  position: Founder | Indie Game Dev 
 #  from: May 2019
@@ -26,7 +36,7 @@
 #                producing high-quality originals. Specialised in making
 #                2D games.
 
-- place: <a href="http://www.bashundharagroup.com/" target="_blank">Bashundhara Gold Refinery Limited (BGRL).</a>
+- place: <a href="http://www.bashundharagroup.com/" target="_blank">Bashundhara Gold Refinery Limited (BGRL)</a>
   logo: "../assets/img/bashundhara_group.png"
   position: Engineer | Metallurgical
   from: August 2020
@@ -36,7 +46,7 @@
                 not only in doing business and making profit. It had come into existence
                 with that belief and adopted ‘For the People, For the Country’ as its core theme.
 
-- place: <a href="http://www.ranisteel.com/" target="_blank">Rani Re-Rolling Mills Ltd. (RRM)</a>
+- place: <a href="http://www.ranisteel.com/" target="_blank">Rani Re-Rolling Mills Ltd (RRM)</a>
   logo: "../assets/img/rrm.png"
   position: Engineer | Quality Control
   from: November 2019
@@ -46,7 +56,7 @@
                 RRM has a track record in manufacturing of mild steel structural Re-bars and
                 Wire products in Bangladesh for decades.
 
-- place: <a href="http://www.bandarsteel.com/" target="_blank">Bandar Steel Industries LTD. (BSI)</a>
+- place: <a href="http://www.bandarsteel.com/" target="_blank">Bandar Steel Industries LTD (BSI)</a>
   logo: "../assets/img/bsi.png"
   position: Intern | Quality Control
   from: September 2017
