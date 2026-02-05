@@ -1,38 +1,33 @@
 ---
-layout: page
+layout: default
 ---
 
-<h1><b>{{ page.title }}</b></h1>
+<article class="post-content">
+  <h1>{{ page.title }}</h1>
 
-<p class="post-metadata text-muted">
-  {{ page.date | date_to_long_string }} -
-  <b>
+  <p class="post-metadata">
+    {{ page.date | date_to_long_string }}
+    &middot;
     {%- assign words = content | number_of_words -%}
     {%- if words < 360 -%}
-    less than 1 min read time
+    less than 1 min read
     {%- else -%}
-    {{ words | divided_by: 180 }} mins read time
+    {{ words | divided_by: 180 }} min read
     {%- endif -%}
-  </b>
 
-  <br>
+    {%- if page.tags != empty -%}
+    <br>
+    {% for tag in page.tags %}
+    <a class="tag" href="{{ tag | slugify | prepend: '/blog/tags#' | relative_url }}">{{ tag }}</a>
+    {% endfor %}
+    {%- endif -%}
+  </p>
 
-  {%- if page.tags != empty -%}
-  Tags:
-  {% for tag in page.tags %}
-  <a class="text-decoration-none no-underline" href="{{ tag | slugify | prepend:'/blog/tags#' | relative_url }}">
-    <span class="tag badge badge-pill text-primary border border-primary">{{ tag }}</span>
-  </a>
-  {% endfor %}
-  {%- endif -%}
+  {{ content }}
 
-</p>
-
-{{ content }}
-
-<p>
-  <br>
   {% if site.disqus.shortname %}
-  {% include disqus_comments.html %}
+  <div class="post-comments">
+    {% include disqus_comments.html %}
+  </div>
   {% endif %}
-</p>
+</article>

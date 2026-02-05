@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en" data-theme="light">
 
 <head>
-
+  <script>
+    (function(){
+      var t=localStorage.getItem('portfolio-theme');
+      if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';
+      document.documentElement.setAttribute('data-theme',t||'light');
+    })();
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,214 +24,177 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://localhost:4000/experience/">
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
   <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
 </head>
 
 
-<body class="d-flex flex-column h-100">
+<body>
 
-  <main class="flex-shrink-0 container mt-3">
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <main class="container mt-4">
+  <nav class="nav" role="navigation">
+  <a class="nav-brand" href="/">Rakibuzzaman Rahat</a>
 
-  <a class="navbar-brand" href="/"><h5><b>Rakibuzzaman Rahat</b></h5></a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu" id="nav-toggle-btn">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/about/">About</a>
-
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
-
-      <a class="nav-item nav-link active" href="/experience/">Experience</a>
-
-      <a class="nav-item nav-link " href="/projects/">Projects</a>
-
-      <a class="nav-item nav-link " href="/resume/">Resume</a>
-
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-links"><a class="nav-link " href="/about/">About</a>
+      <a class="nav-link " href="/blog/">Blog</a>
+      <a class="nav-link active" href="/experience/">Experience</a>
+      <a class="nav-link " href="/projects/">Projects</a>
       
 
+      <button class="nav-theme-btn" id="theme-toggle" aria-label="Switch to dark mode" type="button">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
   </div>
-
 </nav>
-  <div class="col-lg-10 mx-auto mt-5 post">
-  <h4 id="professional-experience"><strong>Professional Experience</strong></h4>
 
-<div class="row">
-    <div class="col mt-4">
-  <div class="timeline-body">
-    
-    <div class="timeline-item">
-      <div class="content">
-        <img src="../assets/img/Uniper-Logo.svg" class="circle-logo wow animated zoomIn" data-wow-delay=".1s" />
-        <h3><a href="https://www.uniper.energy/" target="_blank">Uniper</a></h3>
-        <h5>Working Student | AI and Automation</h5>
-        <h6 class="date">March 2025 — Present</h6>
-        <p>Uniper is a leading international energy company headquartered in Düsseldorf, Germany, playing a key role in securing energy supply across Europe. Uniper focuses on reliable power generation, energy trading, and the transformation toward a low-carbon energy system, with strong investments in hydrogen, renewables, and energy storage.</p>
-      </div>
-    </div>
-    
-    <div class="timeline-item">
-      <div class="content">
-        <img src="../assets/img/ula.svg" class="circle-logo wow animated zoomIn" data-wow-delay=".1s" />
-        <h3><a href="https://www.unilever.com.bd/" target="_blank">Unilever Bangladesh (Pureit)</a></h3>
-        <h5>CRM System Lead</h5>
-        <h6 class="date">June 2023 — April 2024</h6>
-        <p>Unilever Pureit Bangaldesh, a part of Unilever Bangladeshs' Home Care brand, with a goal to ensure safe drinking water for everyone. With the motto of Consumer First, it's the market leader in it's segment.</p>
-      </div>
-    </div>
-    
-    <div class="timeline-item">
-      <div class="content">
-        <img src="../assets/img/Dark Kak - New.jpeg" class="circle-logo wow animated zoomIn" data-wow-delay=".1s" />
-        <h3><a href="http://www.darkkak.com/" target="_blank">Dark Kak</a></h3>
-        <h5>Game Developer &amp; Coordinator</h5>
-        <h6 class="date">August 2022 — January 2023</h6>
-        <p>A game development initiative, focused on creating game-based simulation game to help youth educate in different aspects of life.</p>
-      </div>
-    </div>
-    
-    <div class="timeline-item">
-      <div class="content">
-        <img src="../assets/img/bashundhara_group.png" class="circle-logo wow animated zoomIn" data-wow-delay=".1s" />
-        <h3><a href="http://www.bashundharagroup.com/" target="_blank">Bashundhara Gold Refinery Limited (BGRL)</a></h3>
-        <h5>Engineer | Metallurgical</h5>
-        <h6 class="date">August 2020 — October 2021</h6>
-        <p>Bashundhara Gold Refinery Limited (BGRL), a sister concern of Bashundhara Group. Bashundhara Group believes in serving the people and the country; not only in doing business and making profit. It had come into existence with that belief and adopted ‘For the People, For the Country’ as its core theme.</p>
-      </div>
-    </div>
-    
-    <div class="timeline-item">
-      <div class="content">
-        <img src="../assets/img/rrm.png" class="circle-logo wow animated zoomIn" data-wow-delay=".1s" />
-        <h3><a href="http://www.ranisteel.com/" target="_blank">Rani Re-Rolling Mills Ltd (RRM)</a></h3>
-        <h5>Engineer | Quality Control</h5>
-        <h6 class="date">November 2019 — December 2019</h6>
-        <p>The Rani Re-Rolling Mills Ltd. (RRM) is imbued with a forward looking vision to acquire a global perspective and become a first rate business conglomerate. RRM has a track record in manufacturing of mild steel structural Re-bars and Wire products in Bangladesh for decades.</p>
-      </div>
-    </div>
-    
-    <div class="timeline-item">
-      <div class="content">
-        <img src="../assets/img/bsi.png" class="circle-logo wow animated zoomIn" data-wow-delay=".1s" />
-        <h3><a href="http://www.bandarsteel.com/" target="_blank">Bandar Steel Industries LTD (BSI)</a></h3>
-        <h5>Intern | Quality Control</h5>
-        <h6 class="date">September 2017 — October 2017</h6>
-        <p>Bandar Steel Industries Limited is one of the most sparkling limited company in the steel sector of Bangladesh. Our key product is MS billets and deformed MS bars which are mandatory for constructional purposes.</p>
-      </div>
-    </div>
-    
-  </div>
-</div>
-</div>
+  <div class="page-content">
+  <p><span class="section-label">EXPERIENCE</span></p>
+<h2>Professional Experience</h2>
 
-<p><br /></p>
-
-<h4 id="other-experience"><strong>Other Experience</strong></h4>
-
-<div class="row">
-    <div class="col mt-4">
-  <div class="timeline-body">
-    
-    <div class="timeline-item">
-      <div class="content">
-        <div class="row">
-          <div class="column left"><img src="../assets/img/Zeezbit Studio - Logo.png" class="circle-logo-other wow animated zoomIn" data-wow-delay=".1s" />
-          </div>
-          <div class="column right">
-            <h3><a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios.</a></h3>
-            <h5>Founder | Indie Game Dev</h5>
-            <h6 class="date">May 2019 — Present</h6>
-          </div>
-        </div>
+<div class="experience-section">
+  <div class="experience-list">
+  
+  <article class="experience-item">
+    <div class="experience-header">
+      <img src="../assets/img/Uniper-Logo.svg" class="experience-logo" alt="" />
+      <div class="experience-meta">
+        <h3 class="experience-place"><a href="https://www.uniper.energy/" target="_blank">Uniper</a></h3>
+        <p class="experience-position">Working Student | AI and Automation</p>
+        <p class="experience-date">March 2025 — Present</p>
       </div>
     </div>
-    
-  </div>
-</div>
+    <p class="experience-desc">Uniper is a leading international energy company headquartered in Düsseldorf, Germany, playing a key role in securing energy supply across Europe. Uniper focuses on reliable power generation, energy trading, and the transformation toward a low-carbon energy system, with strong investments in hydrogen, renewables, and energy storage.</p>
+  </article>
+  
+  <article class="experience-item">
+    <div class="experience-header">
+      <img src="../assets/img/ula.svg" class="experience-logo" alt="" />
+      <div class="experience-meta">
+        <h3 class="experience-place"><a href="https://www.unilever.com.bd/" target="_blank">Unilever Bangladesh (Pureit)</a></h3>
+        <p class="experience-position">CRM System Lead</p>
+        <p class="experience-date">June 2023 — April 2024</p>
+      </div>
+    </div>
+    <p class="experience-desc">Unilever Pureit Bangaldesh, a part of Unilever Bangladeshs' Home Care brand, with a goal to ensure safe drinking water for everyone. With the motto of Consumer First, it's the market leader in it's segment.</p>
+  </article>
+  
+  <article class="experience-item">
+    <div class="experience-header">
+      <img src="../assets/img/Dark Kak - New.jpeg" class="experience-logo" alt="" />
+      <div class="experience-meta">
+        <h3 class="experience-place"><a href="http://www.darkkak.com/" target="_blank">Dark Kak</a></h3>
+        <p class="experience-position">Game Developer &amp; Coordinator</p>
+        <p class="experience-date">August 2022 — January 2023</p>
+      </div>
+    </div>
+    <p class="experience-desc">A game development initiative, focused on creating game-based simulation game to help youth educate in different aspects of life.</p>
+  </article>
+  
+  <article class="experience-item">
+    <div class="experience-header">
+      <img src="../assets/img/bashundhara_group.png" class="experience-logo" alt="" />
+      <div class="experience-meta">
+        <h3 class="experience-place"><a href="http://www.bashundharagroup.com/" target="_blank">Bashundhara Gold Refinery Limited (BGRL)</a></h3>
+        <p class="experience-position">Engineer | Metallurgical</p>
+        <p class="experience-date">August 2020 — October 2021</p>
+      </div>
+    </div>
+    <p class="experience-desc">Bashundhara Gold Refinery Limited (BGRL), a sister concern of Bashundhara Group. Bashundhara Group believes in serving the people and the country; not only in doing business and making profit. It had come into existence with that belief and adopted ‘For the People, For the Country’ as its core theme.</p>
+  </article>
+  
+  <article class="experience-item">
+    <div class="experience-header">
+      <img src="../assets/img/rrm.png" class="experience-logo" alt="" />
+      <div class="experience-meta">
+        <h3 class="experience-place"><a href="http://www.ranisteel.com/" target="_blank">Rani Re-Rolling Mills Ltd (RRM)</a></h3>
+        <p class="experience-position">Engineer | Quality Control</p>
+        <p class="experience-date">November 2019 — December 2019</p>
+      </div>
+    </div>
+    <p class="experience-desc">The Rani Re-Rolling Mills Ltd. (RRM) is imbued with a forward looking vision to acquire a global perspective and become a first rate business conglomerate. RRM has a track record in manufacturing of mild steel structural Re-bars and Wire products in Bangladesh for decades.</p>
+  </article>
+  
+  <article class="experience-item">
+    <div class="experience-header">
+      <img src="../assets/img/bsi.png" class="experience-logo" alt="" />
+      <div class="experience-meta">
+        <h3 class="experience-place"><a href="http://www.bandarsteel.com/" target="_blank">Bandar Steel Industries LTD (BSI)</a></h3>
+        <p class="experience-position">Intern | Quality Control</p>
+        <p class="experience-date">September 2017 — October 2017</p>
+      </div>
+    </div>
+    <p class="experience-desc">Bandar Steel Industries Limited is one of the most sparkling limited company in the steel sector of Bangladesh. Our key product is MS billets and deformed MS bars which are mandatory for constructional purposes.</p>
+  </article>
+  
 </div>
 
 </div>
+
+<p><span class="section-label" style="margin-top: 2.5rem;">OTHER</span></p>
+<h2>Other Experience</h2>
+
+<div class="experience-section">
+  <div class="experience-list">
+  
+  <article class="experience-item">
+    <div class="experience-header">
+      <img src="../assets/img/Zeezbit Studio - Logo.png" class="experience-logo experience-logo-lg" alt="" />
+      <div class="experience-meta">
+        <h3 class="experience-place"><a href="https://zeezbitstudios.itch.io/" target="_blank">ZeezBit Studios.</a></h3>
+        <p class="experience-position">Founder | Indie Game Dev</p>
+        <p class="experience-date">May 2019 — Present</p>
+      </div>
+    </div>
+    
+    <p class="experience-desc">An Indie Game Development, focused on creating and producing high-quality originals. Specialised in making 2D games.</p>
+    
+  </article>
+  
+</div>
+
+</div>
+
+</div>
+
   </main>
 
-  <footer class="mt-auto py-3 text-center">
-
-  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.linkedin.com/in/rakibuzzamanrahat"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#007bb5'"
-       onMouseOut="this.style.color='#6c757d'">
+  <footer>
+  <div class="container">
+    <div class="footer-social">
+  <a class="social" href="https://www.linkedin.com/in/rakibuzzamanrahat" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
       <i class="fab fa-linkedin-in fa-2x"></i>
-    </a><a class="social mx-1"  href="https://www.github.com/sleipnir029"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#333333'"
-       onMouseOut="this.style.color='#6c757d'">
+    </a><a class="social" href="https://www.github.com/sleipnir029" target="_blank" rel="noopener noreferrer" aria-label="github">
       <i class="fab fa-github fa-2x"></i>
-    </a><a class="social mx-1"  href="https://www.twitter.com/rakibuzzaman_"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#1da1f2'"
-       onMouseOut="this.style.color='#6c757d'">
+    </a><a class="social" href="https://www.twitter.com/rakibuzzaman_" target="_blank" rel="noopener noreferrer" aria-label="twitter">
       <i class="fab fa-twitter fa-2x"></i>
-    </a><a class="social mx-1"  href="https://zeezbitstudios.itch.io"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#c2343b'"
-       onMouseOut="this.style.color='#6c757d'">
+    </a><a class="social" href="https://zeezbitstudios.itch.io" target="_blank" rel="noopener noreferrer" aria-label="itchio">
       <i class="fab fa-itch-io fa-2x"></i>
-    </a><a class="social mx-1"  href="https://bsky.app/profile/sleipnir029.bsky.social"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#1da1f2'"
-       onMouseOut="this.style.color='#6c757d'">
+    </a><a class="social" href="https://bsky.app/profile/sleipnir029.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="bluesky">
       <i class="fa-brands fa-bluesky fa-2x"></i>
     </a>
-
 </div>
-
-  <br>
-  <small class="text-muted mb-2">
-    <i class="fas fa-code"></i> Last updated: January 2026
-  </small>
-  <br>
-  <small class="text-muted mb-2">
-    <i class="fas fa-map-marker-alt"></i> Aachen, Germany
-  </small>
-
+    <small><i class="fas fa-code"></i> Last updated: February 2026</small>
+    <small><i class="fas fa-map-marker-alt"></i> Aachen, Germany</small>
+  </div>
 </footer>
 
   <!-- GitHub Buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Theme toggle -->
+<script src="/assets/js/theme-toggle.js"></script>
 
-<!-- Popper.js CDN -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-<!-- Bootstrap JS CDN -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- wow.js CDN & Activation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-<script> new WOW().init(); </script>
-
-<script>
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
+<!-- Mobile nav toggle -->
+<script src="/assets/js/nav-toggle.js"></script>
    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165410052-1"></script>
 
  <script>

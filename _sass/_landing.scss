@@ -1,28 +1,87 @@
-// Fine Circle Responsive Image
-// Inspired by https://stackoverflow.com/a/6615994/10194811
+// Hero / Landing - no avatar, bold typography
 
-#container {
-  display: inline-block;
-  position: relative;
-  width: 100%;
+.hero {
+  padding: 3rem 0 4rem;
+  text-align: left;
 }
 
-#dummy {
-  padding-top: 100%; /* 1:1 aspect ratio */
+.hero-content {
+  max-width: 65ch;
 }
 
-#element {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.hero-name {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
 }
 
-.circle-image {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
+.hero-name-line1 {
+  display: block;
+}
+
+.hero-name-line2 {
+  display: block;
+  color: var(--color-text-muted);
+}
+
+.hero-tagline {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-text);
+  margin: 0.5rem 0 0.25rem;
+}
+
+.hero-description {
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(0.9375rem, 1.5vw, 1rem);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: 0 0 1.5rem;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+
+  a {
+    color: var(--color-accent);
+    font-weight: 500;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width 0.25s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.hero-location {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
+
+  i {
+    margin-right: 0.35rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 2rem 0 3rem;
+  }
 }

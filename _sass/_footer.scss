@@ -1,16 +1,55 @@
-.social {
+// Minimal footer - uses theme colors
+
+footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+footer .social {
   text-decoration: none !important;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+footer small {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 #attribution {
   opacity: 0.5;
+
   a {
     text-decoration: none;
     font-weight: bold;
+    color: var(--color-text-muted);
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   #attribution {
     writing-mode: vertical-rl;
     transform: rotate(180deg);

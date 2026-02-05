@@ -4,16 +4,17 @@ title: Experience
 weight: 3
 permalink: /experience/
 ---
-#### **Professional Experience** 
 
-<div class="row">
-    {% include experience/pro_experience.html %}
+<span class="section-label">EXPERIENCE</span>
+<h2>Professional Experience</h2>
+
+<div class="experience-section">
+  {% include experience/pro_experience.html %}
 </div>
 
-<br>
+<span class="section-label" style="margin-top: 2.5rem;">OTHER</span>
+<h2>Other Experience</h2>
 
-#### **Other Experience** 
-
-<div class="row">
-    {% include experience/other_experience.html %}
+<div class="experience-section">
+  {% include experience/other_experience.html %}
 </div>

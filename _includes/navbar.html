@@ -1,23 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="nav" role="navigation">
+  <a class="nav-brand" href="{{ site.baseurl }}/">{{ site.name }}</a>
 
-  <a class="navbar-brand" href="{{ site.baseurl }}/"><h5><b>{{ site.name }}</b></h5></a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu" id="nav-toggle-btn">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto">
-
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-links">
       {%- assign html_pages = site.html_pages | sort: 'weight' -%}
       {%- assign filtered_pages = "" | split: "" -%}
 
-      {%- for html_page in html_pages -%} 
-
+      {%- for html_page in html_pages -%}
         {%- assign exclude = false -%}
-
         {%- for exclude_path in site.nav_exclude -%}
-
           {%- if exclude_path == html_page.path -%}
             {%- assign exclude = true -%}
             {%- break -%}
@@ -28,34 +25,29 @@
               {%- break -%}
             {%- endif -%}
           {%- endif -%}
-
         {%- endfor -%}
-
         {%- unless exclude -%}
           {%- assign filtered_pages = filtered_pages | push: html_page -%}
         {%- endunless -%}
-
       {%- endfor -%}
 
-      {% for html_page in filtered_pages %}  
-
+      {% for html_page in filtered_pages %}
         {%- if page.url contains html_page.url -%}
           {%- assign active_status = "active" -%}
         {%- else -%}
           {%- assign active_status = "" -%}
         {%- endif -%}
-
         {%- if html_page.external_url -%}
           {%- assign url = html_page.external_url -%}
         {%- else -%}
           {%- assign url = html_page.url | relative_url -%}
         {%- endif -%}
-
-        <a class="nav-item nav-link {{ active_status }}" href="{{ url }}">{{ html_page.title }}</a>
-
+        <a class="nav-link {{ active_status }}" href="{{ url }}">{{ html_page.title }}</a>
       {% endfor %}
 
+      <button class="nav-theme-btn" id="theme-toggle" aria-label="Switch to dark mode" type="button">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
   </div>
-
 </nav>

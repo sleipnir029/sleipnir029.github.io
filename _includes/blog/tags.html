@@ -10,9 +10,9 @@
 
 <!-- List tags & related posts -->
 {% for tag in tags %}
-<div class="py-3">
+<div class="tags-section">
   <h4 id="{{ tag | slugify }}">{{ tag }}</h4>
-  <ol>
+  <ul class="tags-posts">
   {% for post in site.posts %}
     {%- if post.tags contains tag -%}
       {%- if post.external_url -%}
@@ -20,12 +20,10 @@
       {%- else -%}
         {%- assign url = post.url | relative_url -%}
       {%- endif -%}
-    <a href="{{ url }}"><li>{{ post.title }}</li></a>
-    <small class="text-muted"> - {{ post.date | date_to_long_string }}</small>
-    <br/>
+    <li><a href="{{ url }}">{{ post.title }}</a> <span class="tags-date">{{ post.date | date_to_long_string }}</span></li>
     {%- endif -%}
   {% endfor %}
-  </ol>
+  </ul>
 </div>
-<hr class="bg-light">
+<hr class="tags-hr">
 {% endfor %}

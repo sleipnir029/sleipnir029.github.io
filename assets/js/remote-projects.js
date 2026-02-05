@@ -13,12 +13,10 @@ function get_tools(repo) {
 }
 
 function parse_tools(tools) {
-  var classes = "badge badge-pill text-primary border border-primary ml-1";
-  var classesArr = classes.split(" ");
   return tools.map(tool => {
     var span = document.createElement("span");
-    span.classList.add(...classesArr);
-    span.innerHTML = tool;
+    span.className = "project-tag";
+    span.textContent = tool;
     return span;
   });
 }

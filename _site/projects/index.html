@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en" data-theme="light">
 
 <head>
-
+  <script>
+    (function(){
+      var t=localStorage.getItem('portfolio-theme');
+      if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';
+      document.documentElement.setAttribute('data-theme',t||'light');
+    })();
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,148 +24,98 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://localhost:4000/projects/">
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
   <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
 </head>
 
 
-<body class="d-flex flex-column h-100">
+<body>
 
-  <main class="flex-shrink-0 container mt-3">
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <main class="container mt-4">
+  <nav class="nav" role="navigation">
+  <a class="nav-brand" href="/">Rakibuzzaman Rahat</a>
 
-  <a class="navbar-brand" href="/"><h5><b>Rakibuzzaman Rahat</b></h5></a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu" id="nav-toggle-btn">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/about/">About</a>
-
-      <a class="nav-item nav-link " href="/blog/">Blog</a>
-
-      <a class="nav-item nav-link " href="/experience/">Experience</a>
-
-      <a class="nav-item nav-link active" href="/projects/">Projects</a>
-
-      <a class="nav-item nav-link " href="/resume/">Resume</a>
-
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-links"><a class="nav-link " href="/about/">About</a>
+      <a class="nav-link " href="/blog/">Blog</a>
+      <a class="nav-link " href="/experience/">Experience</a>
+      <a class="nav-link active" href="/projects/">Projects</a>
       
 
+      <button class="nav-theme-btn" id="theme-toggle" aria-label="Switch to dark mode" type="button">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
   </div>
-
 </nav>
-  <!-- Remote Projects JS -->
-<script src="/assets/js/remote-projects.js"></script>
 
-<div class="card-columns m-3 mt-5">
+  <div class="page-content page-content--wide">
+  <span class="section-label">PROJECTS</span>
+  <h2>What I've Built</h2>
+  <script src="/assets/js/remote-projects.js"></script>
 
-  <!-- Remote Projects -->
-  
-
-  <!-- Local Projects -->
-  <div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/projects/covid-19-data-visualization" class="project card text-dark"><img id="covid-19-data-visualization-img" class="card-img-top" src="/assets/img/covid_19_dashboard.png" alt="Covid-19 Data Visualization" /><div class="card-body">
-      <h5 id="covid-19-data-visualization-name" class="card-title">Covid-19 Data Visualization
-      </h5>
-      <p id="covid-19-data-visualization-desc" class="card-text">This is a data visualisation on the Covid-19 data using Tableau.</p>
-      <p id="covid-19-data-visualization-tools" class="card-text"><span class="badge badge-pill text-primary border border-primary ml-1">Tableau Public</span><span class="badge badge-pill text-primary border border-primary ml-1">Data Visualization</span></p>
-    </div>
-  </a>
-</div>
-
-  <div class="wow animated fadeIn" data-wow-delay=".15s">
-  <a href="/projects/handwritten-digit-recognizer" class="project card text-dark"><img id="hand-written-digit-recognizer-img" class="card-img-top" src="/assets/img/MNIST_blog/traindata.png" alt="Hand Written Digit Recognizer" /><div class="card-body">
-      <h5 id="hand-written-digit-recognizer-name" class="card-title">Hand Written Digit Recognizer
-      </h5>
-      <p id="hand-written-digit-recognizer-desc" class="card-text">A machine learning model to recognize hand written digits.</p>
-      <p id="hand-written-digit-recognizer-tools" class="card-text"><span class="badge badge-pill text-primary border border-primary ml-1">Python</span><span class="badge badge-pill text-primary border border-primary ml-1">pandas</span><span class="badge badge-pill text-primary border border-primary ml-1">Tensorflow</span></p>
-    </div>
-  </a>
-</div>
+<div class="projects-grid">
 
   
+
+  <a href="/projects/covid-19-data-visualization" class="project-card" target="_blank" rel="noopener noreferrer"><img class="project-card-img" src="/assets/img/covid_19_dashboard.png" alt="Covid-19 Data Visualization" /><div class="project-card-body">
+    <h3 class="project-card-title">Covid-19 Data Visualization
+    </h3>
+    <p class="project-card-desc">This is a data visualisation on the Covid-19 data using Tableau.</p>
+    <div class="project-card-tools" id="covid-19-data-visualization-tools"><span class="project-tag">Tableau Public</span><span class="project-tag">Data Visualization</span></div>
+  </div>
+</a>
+
+  <a href="/projects/handwritten-digit-recognizer" class="project-card" target="_blank" rel="noopener noreferrer"><img class="project-card-img" src="/assets/img/MNIST_blog/traindata.png" alt="Hand Written Digit Recognizer" /><div class="project-card-body">
+    <h3 class="project-card-title">Hand Written Digit Recognizer
+    </h3>
+    <p class="project-card-desc">A machine learning model to recognize hand written digits.</p>
+    <div class="project-card-tools" id="hand-written-digit-recognizer-tools"><span class="project-tag">Python</span><span class="project-tag">pandas</span><span class="project-tag">Tensorflow</span></div>
+  </div>
+</a>
+
+  
+
+</div>
 
 </div>
   </main>
 
-  <footer class="mt-auto py-3 text-center">
-
-  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="https://www.linkedin.com/in/rakibuzzamanrahat"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#007bb5'"
-       onMouseOut="this.style.color='#6c757d'">
+  <footer>
+  <div class="container">
+    <div class="footer-social">
+  <a class="social" href="https://www.linkedin.com/in/rakibuzzamanrahat" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
       <i class="fab fa-linkedin-in fa-2x"></i>
-    </a><a class="social mx-1"  href="https://www.github.com/sleipnir029"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#333333'"
-       onMouseOut="this.style.color='#6c757d'">
+    </a><a class="social" href="https://www.github.com/sleipnir029" target="_blank" rel="noopener noreferrer" aria-label="github">
       <i class="fab fa-github fa-2x"></i>
-    </a><a class="social mx-1"  href="https://www.twitter.com/rakibuzzaman_"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#1da1f2'"
-       onMouseOut="this.style.color='#6c757d'">
+    </a><a class="social" href="https://www.twitter.com/rakibuzzaman_" target="_blank" rel="noopener noreferrer" aria-label="twitter">
       <i class="fab fa-twitter fa-2x"></i>
-    </a><a class="social mx-1"  href="https://zeezbitstudios.itch.io"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#c2343b'"
-       onMouseOut="this.style.color='#6c757d'">
+    </a><a class="social" href="https://zeezbitstudios.itch.io" target="_blank" rel="noopener noreferrer" aria-label="itchio">
       <i class="fab fa-itch-io fa-2x"></i>
-    </a><a class="social mx-1"  href="https://bsky.app/profile/sleipnir029.bsky.social"
-    target="_blank"
-       style="color: #6c757d"
-       onMouseOver="this.style.color='#1da1f2'"
-       onMouseOut="this.style.color='#6c757d'">
+    </a><a class="social" href="https://bsky.app/profile/sleipnir029.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="bluesky">
       <i class="fa-brands fa-bluesky fa-2x"></i>
     </a>
-
 </div>
-
-  <br>
-  <small class="text-muted mb-2">
-    <i class="fas fa-code"></i> Last updated: January 2026
-  </small>
-  <br>
-  <small class="text-muted mb-2">
-    <i class="fas fa-map-marker-alt"></i> Aachen, Germany
-  </small>
-
+    <small><i class="fas fa-code"></i> Last updated: February 2026</small>
+    <small><i class="fas fa-map-marker-alt"></i> Aachen, Germany</small>
+  </div>
 </footer>
 
   <!-- GitHub Buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Theme toggle -->
+<script src="/assets/js/theme-toggle.js"></script>
 
-<!-- Popper.js CDN -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-<!-- Bootstrap JS CDN -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- wow.js CDN & Activation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-<script> new WOW().init(); </script>
-
-<script>
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
+<!-- Mobile nav toggle -->
+<script src="/assets/js/nav-toggle.js"></script>
    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165410052-1"></script>
 
  <script>

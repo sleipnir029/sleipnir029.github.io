@@ -1,0 +1,25 @@
+// Sepia theme - CSS custom properties for light/dark mode
+// Applied via [data-theme="light"] or [data-theme="dark"] on <html>
+
+:root,
+[data-theme="light"] {
+  --color-bg: #F5F0E8;
+  --color-surface: #EDE6DB;
+  --color-text: #2C2419;
+  --color-text-muted: #5C5247;
+  --color-accent: #6B7B5C;
+  --color-border: #D4C9B8;
+  --color-link: #6B7B5C;
+  --color-link-hover: #5A6A4B;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1A1612;
+  --color-surface: #252019;
+  --color-text: #EDE6DB;
+  --color-text-muted: #A89F8F;
+  --color-accent: #8B9B7A;
+  --color-border: #3D3529;
+  --color-link: #8B9B7A;
+  --color-link-hover: #9BAB8A;
+}
