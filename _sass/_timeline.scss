@@ -11,8 +11,8 @@
   grid-template-columns: 5rem 1fr;
   gap: 2.5rem;
   padding: 1.5rem 0;
-  border-bottom: 1px solid var(--color-border);
   align-items: start;
+  border-bottom: 1px solid var(--color-border);
   transition: opacity 0.3s ease, max-height 0.4s ease;
 
   &:last-child {
@@ -22,10 +22,10 @@
 
 .timeline-year {
   font-family: "Inter", sans-serif;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 400;
   color: var(--color-text-muted);
-  opacity: 0.4;
+  opacity: 0.6;
   padding-top: 0.15rem;
   position: sticky;
   top: 1rem;
@@ -110,7 +110,7 @@
 
   .timeline-year {
     position: static;
-    font-size: 1.25rem;
-    opacity: 0.5;
+    font-size: 1rem;
+    opacity: 0.6;
   }
 }

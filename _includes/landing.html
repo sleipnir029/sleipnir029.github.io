@@ -13,19 +13,6 @@
       <p class="hero-description">{{ site.description }}</p>
       <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Aachen, Germany</p>
     </div>
-    {% if site.fantasy_hike %}
-    {% assign fh = site.fantasy_hike %}
-    {% assign current_milestone = nil %}
-    {% for m in fh.milestones %}
-      {% if m.km <= fh.current_km %}{% assign current_milestone = m %}{% endif %}
-    {% endfor %}
-    <aside class="fantasy-hike" aria-label="Walking progress to Mordor">
-      <span class="fantasy-hike-label">Walk to {{ fh.destination }}</span>
-      <span class="fantasy-hike-distance">{{ fh.current_km }} <span class="fantasy-hike-sep">/</span> {{ fh.total_km }} km</span>
-      {% if current_milestone %}<span class="fantasy-hike-milestone">{{ current_milestone.name }}</span>{% endif %}
-      <div class="fantasy-hike-bar"><div class="fantasy-hike-fill" style="width: {{ fh.current_km | times: 100 | divided_by: fh.total_km }}%;"></div></div>
-    </aside>
-    {% endif %}
   </div>
 </section>
 
@@ -52,7 +39,7 @@
     <span class="section-label">PROJECTS</span>
     <h2 class="section-title">What I've Built</h2>
 
-    <div class="featured-projects">
+    <ul class="featured-projects" aria-label="Featured projects">
       {% assign featured_count = 0 %}
       {% for project in site.projects %}
         {% if project.featured and featured_count < 3 %}
@@ -65,11 +52,11 @@
           {% include landing/featured-project.html project=project index=forloop.index0 %}
         {% endfor %}
       {% endif %}
-    </div>
+    </ul>
 
     <div class="projects-archive-wrap">
       <h3 class="subsection-title">Other Noteworthy Projects</h3>
-      <a href="{{ '/projects/' | relative_url }}" class="projects-archive-link">view the archive</a>
+      <a href="{{ '/archive/' | relative_url }}" class="projects-archive-link">view the archive</a>
       <ul class="projects-archive-list">
         {% if featured_count > 0 %}
           {% for project in site.projects %}

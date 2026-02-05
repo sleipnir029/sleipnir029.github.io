@@ -67,23 +67,6 @@ typing_projects:
   - "Indie Games @ ZeezBit"
   - "Data Visualizations"
 
-### Fantasy Hike (LOTR-style walk progress, minimal hero widget) ###
-fantasy_hike:
-  total_km: 1350
-  current_km: 178
-  destination: "Mordor"
-  milestones:
-    - name: "Bag End"
-      km: 0
-    - name: "Bree"
-      km: 60
-    - name: "Rivendell"
-      km: 370
-    - name: "Lothlórien"
-      km: 750
-    - name: "Mordor"
-      km: 1350
-
 ### Collections ###
 collections:
   projects:

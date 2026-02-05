@@ -111,16 +111,35 @@ a {
   font-family: "Inter", sans-serif;
 }
 
-// Page content - used in page layout
+// Back link on standalone pages (blog, archive)
+.page-back {
+  display: inline-block;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+// Page content - used in page layout (blog, archive, etc.)
 .page-content {
   max-width: 65ch;
-  margin-top: 2rem;
-  padding-bottom: 3rem;
+  margin: 2rem auto 3rem;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
 }
 
 // Wider content for projects and blog grids
 .page-content--wide {
-  max-width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
 }
 
 .section-label {

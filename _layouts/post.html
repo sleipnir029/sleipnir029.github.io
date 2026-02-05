@@ -6,11 +6,6 @@ layout: default
   <div class="post-progress" id="post-progress" aria-hidden="true"></div>
   <article class="post-content">
     <a href="{{ '/blog/' | relative_url }}" class="post-back">← Back to Writing</a>
-    {% if page.featured_image %}
-    <figure class="post-featured-image">
-      <img src="{{ page.featured_image | prepend: '/' | relative_url }}" alt="" loading="eager" />
-    </figure>
-    {% endif %}
     <header class="post-header">
       <h1 class="post-title">{{ page.title }}</h1>
       <p class="post-metadata">

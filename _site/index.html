@@ -23,7 +23,7 @@
   <meta property="og:title" content="Rakibuzzaman Rahat">
   <meta property="og:description" content=""Tell me and I forget. Teach me and I remember. Involve me and I learn."">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="/">
+  <meta property="og:url" content="http://localhost:4000/">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -33,6 +33,7 @@
 
 <body>
 
+  
   <nav class="side-nav" aria-label="Section navigation">
   <ul class="side-nav-list">
     <li><a href="#hero" class="side-nav-dot active" data-section="hero" aria-label="Home"><span>Home</span></a></li>
@@ -45,6 +46,7 @@
   </ul>
 </nav>
 
+  
   <main class="main-content">
   <!-- Single-page portfolio: Hero, About, Projects, Games, Experience, Blog, Contact -->
 <script type="application/json" id="typing-config">{"phrases": ["AI Automation @ Uniper","Indie Games @ ZeezBit","Data Visualizations"]}</script>
@@ -61,17 +63,6 @@
       <p class="hero-description">"Tell me and I forget. Teach me and I remember. Involve me and I learn."</p>
       <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Aachen, Germany</p>
     </div>
-    
-    
-    
-    
-    <aside class="fantasy-hike" aria-label="Walking progress to Mordor">
-      <span class="fantasy-hike-label">Walk to Mordor</span>
-      <span class="fantasy-hike-distance">178 <span class="fantasy-hike-sep">/</span> 1350 km</span>
-      <span class="fantasy-hike-milestone">Bree</span>
-      <div class="fantasy-hike-bar"><div class="fantasy-hike-fill" style="width: 13%;"></div></div>
-    </aside>
-    
   </div>
 </section>
 
@@ -98,21 +89,20 @@
     <span class="section-label">PROJECTS</span>
     <h2 class="section-title">What I've Built</h2>
 
-    <div class="featured-projects">
+    <ul class="featured-projects" aria-label="Featured projects">
       
       
         
-          <article class="featured-project ">
-  <a href="/projects/covid-19-data-visualization" class="featured-project-link">
-    <div class="featured-project-media">
-      
-        <img class="featured-project-img" src="/assets/img/covid_19_dashboard.png" alt="Covid-19 Data Visualization" />
-      
-    </div>
+          <li class="featured-project featured-project--v4 ">
+  <div class="featured-project-inner">
     <div class="featured-project-content">
-      <span class="featured-project-label">Featured Project</span>
-      <h3 class="featured-project-title">Covid-19 Data Visualization</h3>
-      <p class="featured-project-desc">This is a data visualisation on the Covid-19 data using Tableau.</p>
+      <span class="featured-project-overline">Featured Project</span>
+      <h3 class="featured-project-title">
+        <a href="/projects/covid-19-data-visualization">Covid-19 Data Visualization</a>
+      </h3>
+      <div class="featured-project-description">
+        <p>This is a data visualisation on the Covid-19 data using Tableau.</p>
+      </div>
       
       <ul class="featured-project-tools">
         
@@ -122,26 +112,34 @@
         
       </ul>
       
-      <span class="featured-project-cta">View project <i class="fas fa-external-link-alt"></i></span>
+      <div class="featured-project-links">
+        <a href="/projects/covid-19-data-visualization" class="featured-project-cta">View project <i class="fas fa-external-link-alt"></i></a>
+      </div>
     </div>
-  </a>
-</article>
+    <div class="featured-project-media">
+      <a href="/projects/covid-19-data-visualization" class="featured-project-media-link">
+        
+          <img class="featured-project-img" src="/assets/img/covid_19_dashboard.png" alt="" />
+        
+      </a>
+    </div>
+  </div>
+</li>
 
           
         
       
         
-          <article class="featured-project featured-project--reverse">
-  <a href="/projects/handwritten-digit-recognizer" class="featured-project-link">
-    <div class="featured-project-media">
-      
-        <img class="featured-project-img" src="/assets/img/MNIST_blog/traindata.png" alt="Hand Written Digit Recognizer" />
-      
-    </div>
+          <li class="featured-project featured-project--v4 featured-project--reverse">
+  <div class="featured-project-inner">
     <div class="featured-project-content">
-      <span class="featured-project-label">Featured Project</span>
-      <h3 class="featured-project-title">Hand Written Digit Recognizer</h3>
-      <p class="featured-project-desc">A machine learning model to recognize hand written digits.</p>
+      <span class="featured-project-overline">Featured Project</span>
+      <h3 class="featured-project-title">
+        <a href="/projects/handwritten-digit-recognizer">Hand Written Digit Recognizer</a>
+      </h3>
+      <div class="featured-project-description">
+        <p>A machine learning model to recognize hand written digits.</p>
+      </div>
       
       <ul class="featured-project-tools">
         
@@ -153,20 +151,29 @@
         
       </ul>
       
-      <span class="featured-project-cta">View project <i class="fas fa-external-link-alt"></i></span>
+      <div class="featured-project-links">
+        <a href="/projects/handwritten-digit-recognizer" class="featured-project-cta">View project <i class="fas fa-external-link-alt"></i></a>
+      </div>
     </div>
-  </a>
-</article>
+    <div class="featured-project-media">
+      <a href="/projects/handwritten-digit-recognizer" class="featured-project-media-link">
+        
+          <img class="featured-project-img" src="/assets/img/MNIST_blog/traindata.png" alt="" />
+        
+      </a>
+    </div>
+  </div>
+</li>
 
           
         
       
       
-    </div>
+    </ul>
 
     <div class="projects-archive-wrap">
       <h3 class="subsection-title">Other Noteworthy Projects</h3>
-      <a href="/projects/" class="projects-archive-link">view the archive</a>
+      <a href="/archive/" class="projects-archive-link">view the archive</a>
       <ul class="projects-archive-list">
         
           

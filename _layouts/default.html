@@ -5,7 +5,9 @@
 
 <body>
 
+  {% if page.url == '/' or page.url == '' %}
   {% include side-nav.html %}
+  {% endif %}
   <main class="main-content">
   {{ content }}
   </main>
