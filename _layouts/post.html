@@ -2,32 +2,71 @@
 layout: default
 ---
 
-<article class="post-content">
-  <h1>{{ page.title }}</h1>
+<div class="post-page">
+  <div class="post-progress" id="post-progress" aria-hidden="true"></div>
+  <article class="post-content">
+    <a href="{{ '/blog/' | relative_url }}" class="post-back">← Back to Writing</a>
+    {% if page.featured_image %}
+    <figure class="post-featured-image">
+      <img src="{{ page.featured_image | prepend: '/' | relative_url }}" alt="" loading="eager" />
+    </figure>
+    {% endif %}
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-metadata">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_long_string }}</time>
+        <span class="post-meta-sep">·</span>
+        {%- assign words = content | number_of_words -%}
+        {%- if words < 360 -%}
+        less than 1 min read
+        {%- else -%}
+        {{ words | divided_by: 180 }} min read
+        {%- endif -%}
+        {%- if page.tags != empty -%}
+        <span class="post-meta-sep">·</span>
+        {% for tag in page.tags %}
+        <a class="tag" href="{{ tag | slugify | prepend: '/blog/tags#' | relative_url }}">{{ tag }}</a>{% unless forloop.last %} {% endunless %}
+        {% endfor %}
+        {%- endif -%}
+      </p>
+    </header>
 
-  <p class="post-metadata">
-    {{ page.date | date_to_long_string }}
-    &middot;
-    {%- assign words = content | number_of_words -%}
-    {%- if words < 360 -%}
-    less than 1 min read
-    {%- else -%}
-    {{ words | divided_by: 180 }} min read
-    {%- endif -%}
+    <div class="post-body">
+      {{ content }}
+    </div>
 
-    {%- if page.tags != empty -%}
-    <br>
-    {% for tag in page.tags %}
-    <a class="tag" href="{{ tag | slugify | prepend: '/blog/tags#' | relative_url }}">{{ tag }}</a>
-    {% endfor %}
-    {%- endif -%}
-  </p>
+    {% if page.image_grid and page.image_grid.size > 0 %}
+    <div class="post-image-grids">
+      {% for grid in page.image_grid %}
+      <div class="image-grid image-grid-{{ grid.columns | default: 2 }}" data-columns="{{ grid.columns | default: 2 }}">
+        {% for img in grid.images %}
+        <img src="{{ img | prepend: '/' | relative_url }}" alt="" loading="lazy" />
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
 
-  {{ content }}
+    {% if site.disqus.shortname %}
+    <div class="post-comments">
+      {% include disqus_comments.html %}
+    </div>
+    {% endif %}
+  </article>
+</div>
 
-  {% if site.disqus.shortname %}
-  <div class="post-comments">
-    {% include disqus_comments.html %}
-  </div>
-  {% endif %}
-</article>
+<script>
+(function() {
+  var bar = document.getElementById('post-progress');
+  if (!bar) return;
+  function update() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight <= 0 ? 0 : Math.min(100, (scrollTop / docHeight) * 100);
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update);
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>

@@ -1,7 +1,13 @@
-<footer>
-  <div class="container">
-    {% include social.html %}
-    <small><i class="fas fa-code"></i> Last updated: {{ site.time | date: "%B %Y" }}</small>
-    <small><i class="fas fa-map-marker-alt"></i> Aachen, Germany</small>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <small>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}. All rights reserved.</small>
+      <small class="footer-updated">Last updated {{ site.time | date: "%B %Y" }}</small>
+    </div>
+    <div class="footer-right">
+      <button class="nav-theme-btn footer-theme-btn" id="theme-toggle-footer" aria-label="Toggle theme" type="button">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
   </div>
 </footer>

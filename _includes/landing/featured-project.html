@@ -1,0 +1,33 @@
+{%- assign project = include.project -%}
+{%- assign index = include.index | default: 0 -%}
+{%- assign mod = index | modulo: 2 -%}
+{%- if project.external_url -%}
+  {%- assign project_url = project.external_url -%}
+{%- else -%}
+  {%- assign project_url = project.url | relative_url -%}
+{%- endif -%}
+
+<article class="featured-project {% if mod == 1 %}featured-project--reverse{% endif %}">
+  <a href="{{ project_url }}" class="featured-project-link" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>
+    <div class="featured-project-media">
+      {% if project.image %}
+        <img class="featured-project-img" src="{{ project.image | relative_url }}" alt="{{ project.name }}" />
+      {% else %}
+        <div class="featured-project-placeholder"><i class="fas fa-folder"></i></div>
+      {% endif %}
+    </div>
+    <div class="featured-project-content">
+      <span class="featured-project-label">Featured Project</span>
+      <h3 class="featured-project-title">{{ project.name }}</h3>
+      <p class="featured-project-desc">{{ project.description }}</p>
+      {% if project.tools and project.tools.size > 0 %}
+      <ul class="featured-project-tools">
+        {% for tool in project.tools %}
+          <li>{{ tool }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <span class="featured-project-cta">View project <i class="fas fa-external-link-alt"></i></span>
+    </div>
+  </a>
+</article>

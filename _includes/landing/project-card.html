@@ -1,0 +1,24 @@
+{%- assign project = include.project -%}
+{%- assign featured = include.featured -%}
+{%- if project.external_url -%}
+  {%- assign project_url = project.external_url -%}
+{%- else -%}
+  {%- assign project_url = project.url | relative_url -%}
+{%- endif -%}
+
+<a href="{{ project_url }}" class="project-card {% if featured %}project-card--featured{% else %}project-card--fun{% endif %}" target="_blank" rel="noopener noreferrer">
+  {% if project.image %}
+    <img class="project-card-img" src="{{ project.image | relative_url }}" alt="{{ project.name }}" />
+  {% endif %}
+  <div class="project-card-body">
+    <h3 class="project-card-title">{{ project.name }}</h3>
+    <p class="project-card-desc">{{ project.description }}</p>
+    {% if project.tools and project.tools.size > 0 %}
+    <div class="project-card-tools">
+      {% for tool in project.tools %}
+        <span class="project-tag">{{ tool }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</a>

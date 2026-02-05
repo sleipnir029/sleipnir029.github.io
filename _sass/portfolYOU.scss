@@ -1,19 +1,18 @@
 @charset "utf-8";
 
-// Custom Fonts - DM Serif Display for headings, DM Sans for body
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+// Custom Fonts - Inter (azmainadel.com / brittanychiang.com style)
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "variables",
-        "theme",
-        "layout",
-        "404",
-        "autumn",
-        "base",
-        "blog",
-        "footer",
-        "landing",
-        "navbar",
-        "projects",
-        "skills",
-        "timeline";
+"theme",
+"404",
+"autumn",
+"base",
+"blog",
+"footer",
+"landing",
+"side-nav",
+"projects",
+"skills",
+"timeline";

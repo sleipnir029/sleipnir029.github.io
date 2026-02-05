@@ -1,5 +1,9 @@
-// Sepia theme - CSS custom properties for light/dark mode
+// Sepia (light) / Dark theme - CSS custom properties
 // Applied via [data-theme="light"] or [data-theme="dark"] on <html>
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 :root,
 [data-theme="light"] {
@@ -14,12 +18,12 @@
 }
 
 [data-theme="dark"] {
-  --color-bg: #1A1612;
-  --color-surface: #252019;
-  --color-text: #EDE6DB;
-  --color-text-muted: #A89F8F;
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
   --color-accent: #8B9B7A;
-  --color-border: #3D3529;
+  --color-border: #334155;
   --color-link: #8B9B7A;
   --color-link-hover: #9BAB8A;
 }

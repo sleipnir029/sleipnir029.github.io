@@ -12,18 +12,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content=""Tell me and I forget. Teach me and I remember. Involve me and I learn."">
+  <meta name="description" content="Testing the image grid feature via front matter.">
   <meta name="author" content="Rakibuzzaman Rahat">
 
-  <title>Tags | Rakibuzzaman Rahat</title>
+  <title>Image Grid Demo in a Blog Post | Rakibuzzaman Rahat</title>
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon-r.svg">
   <link rel="alternate icon" type="image/png" href="/assets/img/favicon.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Tags">
-  <meta property="og:description" content=""Tell me and I forget. Teach me and I remember. Involve me and I learn."">
+  <meta property="og:title" content="Image Grid Demo in a Blog Post">
+  <meta property="og:description" content="Testing the image grid feature via front matter.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="/blog/tags">
+  <meta property="og:url" content="/blog/test-post-two">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -46,44 +46,91 @@
 </nav>
 
   <main class="main-content">
-  <div class="page-content">
-  <span class="section-label">BLOG</span>
-  <h2>Tags</h2>
-  <!-- Collect tags from all posts --><!-- List tags & related posts -->
+  <div class="post-page">
+  <div class="post-progress" id="post-progress" aria-hidden="true"></div>
+  <article class="post-content">
+    <a href="/blog/" class="post-back">← Back to Writing</a>
+    
+    <figure class="post-featured-image">
+      <img src="/assets/img/covid_19_dashboard.png" alt="" loading="eager" />
+    </figure>
+    
+    <header class="post-header">
+      <h1 class="post-title">Image Grid Demo in a Blog Post</h1>
+      <p class="post-metadata">
+        <time datetime="2024-02-20T15:00:00+01:00">20 February 2024</time>
+        <span class="post-meta-sep">·</span>less than 1 min read<span class="post-meta-sep">·</span>
+        
+        <a class="tag" href="/blog/tags#jekyll">jekyll</a>
+        
+        <a class="tag" href="/blog/tags#images">images</a>
+        </p>
+    </header>
 
-<div class="tags-section">
-  <h4 id="images">images</h4>
-  <ul class="tags-posts">
-  <li><a href="/blog/test-post-two">Image Grid Demo in a Blog Post</a> <span class="tags-date">20 February 2024</span></li>
-  </ul>
-</div>
-<hr class="tags-hr">
+    <div class="post-body">
+      <p>This dummy post demonstrates the <strong>image grid</strong> feature.</p>
 
-<div class="tags-section">
-  <h4 id="jekyll">jekyll</h4>
-  <ul class="tags-posts">
-  <li><a href="/blog/test-post-two">Image Grid Demo in a Blog Post</a> <span class="tags-date">20 February 2024</span></li>
-  </ul>
-</div>
-<hr class="tags-hr">
+<p>Define <code class="language-plaintext highlighter-rouge">image_grid</code> in the front matter with a list of grids. Each grid has <code class="language-plaintext highlighter-rouge">images</code> (paths) and <code class="language-plaintext highlighter-rouge">columns</code> (2, 3, or 4). The grids are rendered after the post content.</p>
 
-<div class="tags-section">
-  <h4 id="materials">materials</h4>
-  <ul class="tags-posts">
-  <li><a href="/blog/test-post-one">Getting Started with Materials and Code</a> <span class="tags-date">15 January 2024</span></li>
-  </ul>
-</div>
-<hr class="tags-hr">
+<p>You can also use raw HTML in markdown for inline grids:</p>
 
-<div class="tags-section">
-  <h4 id="programming">programming</h4>
-  <ul class="tags-posts">
-  <li><a href="/blog/test-post-one">Getting Started with Materials and Code</a> <span class="tags-date">15 January 2024</span></li>
-  </ul>
+<div class="image-grid image-grid-2">
+  <img src="/assets/img/favicon.png" alt="Favicon" />
+  <img src="/assets/img/avatar.png" alt="Avatar" />
 </div>
-<hr class="tags-hr">
 
+<p>Above is a 2-column grid written in HTML. Below will be the grids from front matter (if any).</p>
+
+    </div>
+
+    
+    <div class="post-image-grids">
+      
+      <div class="image-grid image-grid-2" data-columns="2">
+        
+        <img src="/assets/img/favicon.png" alt="" loading="lazy" />
+        
+        <img src="/assets/img/avatar.png" alt="" loading="lazy" />
+        
+      </div>
+      
+      <div class="image-grid image-grid-3" data-columns="3">
+        
+        <img src="/assets/img/favicon.png" alt="" loading="lazy" />
+        
+        <img src="/assets/img/avatar.png" alt="" loading="lazy" />
+        
+        <img src="/assets/img/favicon-r.svg" alt="" loading="lazy" />
+        
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="post-comments">
+      
+    </div>
+    
+  </article>
 </div>
+
+<script>
+(function() {
+  var bar = document.getElementById('post-progress');
+  if (!bar) return;
+  function update() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight <= 0 ? 0 : Math.min(100, (scrollTop / docHeight) * 100);
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update);
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
   </main>
 
   <footer class="site-footer">

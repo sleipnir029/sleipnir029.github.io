@@ -1,17 +1,222 @@
-<section class="hero">
-  <div class="hero-content">
-    <h1 class="hero-name">
-      <span class="hero-name-line1">Rakibuzzaman</span>
-      <span class="hero-name-line2">Rahat</span>
-    </h1>
-    <p class="hero-tagline">{{ site.subtitle }}</p>
-    <p class="hero-description">{{ site.description }}</p>
-    <div class="hero-links">
-      <a href="{{ site.baseurl }}/about/">About</a>
-      <a href="{{ site.baseurl }}/projects/">Projects</a>
-      <a href="{{ site.baseurl }}/blog/">Blog</a>
-      <a href="{{ site.baseurl }}/experience/">Experience</a>
+<!-- Single-page portfolio: Hero, About, Projects, Games, Experience, Blog, Contact -->
+<script type="application/json" id="typing-config">{"phrases": {{ site.typing_projects | jsonify }}}</script>
+
+<section id="hero" class="section hero-section">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1 class="hero-name">
+        <span class="hero-name-line1">Rakibuzzaman</span>
+        <span class="hero-name-line2">Rahat</span>
+      </h1>
+      <p class="hero-tagline">{{ site.subtitle }}</p>
+      <p class="hero-typing-wrap">Currently building: <span id="typing-target" class="hero-typing"></span><span class="hero-typing-cursor">|</span></p>
+      <p class="hero-description">{{ site.description }}</p>
+      <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Aachen, Germany</p>
     </div>
-    <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Aachen, Germany</p>
+    {% if site.fantasy_hike %}
+    {% assign fh = site.fantasy_hike %}
+    {% assign current_milestone = nil %}
+    {% for m in fh.milestones %}
+      {% if m.km <= fh.current_km %}{% assign current_milestone = m %}{% endif %}
+    {% endfor %}
+    <aside class="fantasy-hike" aria-label="Walking progress to Mordor">
+      <span class="fantasy-hike-label">Walk to {{ fh.destination }}</span>
+      <span class="fantasy-hike-distance">{{ fh.current_km }} <span class="fantasy-hike-sep">/</span> {{ fh.total_km }} km</span>
+      {% if current_milestone %}<span class="fantasy-hike-milestone">{{ current_milestone.name }}</span>{% endif %}
+      <div class="fantasy-hike-bar"><div class="fantasy-hike-fill" style="width: {{ fh.current_km | times: 100 | divided_by: fh.total_km }}%;"></div></div>
+    </aside>
+    {% endif %}
+  </div>
+</section>
+
+<section id="about" class="section about-section">
+  <div class="section-inner">
+    <span class="section-label">ABOUT</span>
+    <h2 class="section-title">Life Story</h2>
+    <div class="about-prose">
+      <p class="about-lead">There's no short tl;dr here — the path from <strong>materials engineering</strong> to <strong>creative coding</strong> is too much fun to squeeze into a line or two.</p>
+      <p>I grew up in <strong>Bangladesh</strong> and got hooked on tech and <strong>gaming</strong> early. That curiosity led me to <strong>BUET</strong>, where I studied <strong>Materials and Metallurgical Engineering</strong>. There I realised I could build things without breaking them — well, mostly — by writing code. I started with small scripts and buggy experiments, then fell into how games work and ended up making a few of my own.</p>
+      <p>After my bachelor's I moved to Germany. I'm now doing a <strong>Master’s in Materials Science and Engineering</strong> at <strong>RWTH Aachen</strong>. On the side I build <strong>indie games</strong> with ZeezBit Studios, work on <strong>AI and automation</strong> in industry, and do <strong>creative coding</strong> and data viz whenever I get the chance. I like sitting at the intersection of <strong>materials</strong> and <strong>software</strong>: both are about understanding systems and making things that work.</p>
+      <p>When I'm not in front of a screen, I'm often looking up at the sky — I'm a <strong>stargazing</strong> noob, but I love it. And I still aspire to build products that reach a <strong>global audience</strong> and to bridge <strong>materials engineering</strong> and <strong>software</strong> in a way that's useful and real. If the chance comes, I'll keep making games too.</p>
+    </div>
+    <div class="about-aspiration">
+      <p class="about-aspiration-text">I aspire to create something real and useful that reaches a global user base, while bridging materials engineering and software.</p>
+      <p class="about-aspiration-muted">Here’s to hoping it all works out.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Projects section: design inspired by https://github.com/bchiang7/v4 -->
+<section id="projects" class="section projects-section">
+  <div class="section-inner">
+    <span class="section-label">PROJECTS</span>
+    <h2 class="section-title">What I've Built</h2>
+
+    <div class="featured-projects">
+      {% assign featured_count = 0 %}
+      {% for project in site.projects %}
+        {% if project.featured and featured_count < 3 %}
+          {% include landing/featured-project.html project=project index=featured_count %}
+          {% assign featured_count = featured_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+      {% if featured_count == 0 %}
+        {% for project in site.projects limit: 2 %}
+          {% include landing/featured-project.html project=project index=forloop.index0 %}
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="projects-archive-wrap">
+      <h3 class="subsection-title">Other Noteworthy Projects</h3>
+      <a href="{{ '/projects/' | relative_url }}" class="projects-archive-link">view the archive</a>
+      <ul class="projects-archive-list">
+        {% if featured_count > 0 %}
+          {% for project in site.projects %}
+            {% unless project.featured %}
+              {% assign proj_url = project.external_url | default: project.url | relative_url %}
+              <li class="projects-archive-item">
+                <span class="projects-archive-year">{{ project.year | default: "—" }}</span>
+                <a href="{{ proj_url }}" class="projects-archive-title" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name }}</a>
+                <a href="{{ proj_url }}" class="projects-archive-icon" aria-label="Open {{ project.name }}" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}><i class="fas fa-external-link-alt"></i></a>
+              </li>
+            {% endunless %}
+          {% endfor %}
+        {% else %}
+          {% for project in site.projects offset: 2 %}
+            {% assign proj_url = project.external_url | default: project.url | relative_url %}
+            <li class="projects-archive-item">
+              <span class="projects-archive-year">{{ project.year | default: "—" }}</span>
+              <a href="{{ proj_url }}" class="projects-archive-title" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name }}</a>
+              <a href="{{ proj_url }}" class="projects-archive-icon" aria-label="Open {{ project.name }}" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}><i class="fas fa-external-link-alt"></i></a>
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="games" class="section games-section">
+  <div class="section-inner">
+    <span class="section-label">GAMES</span>
+    <h2 class="section-title">Indie Games</h2>
+    {% assign itchio_url = site.data.social-media.itchio.url | append: site.author.itchio %}
+    <p class="games-intro">Games from <a href="{{ itchio_url }}" target="_blank" rel="noopener noreferrer">ZeezBit Studios</a> — play on itch.io.</p>
+    <div class="games-grid">
+      {% if site.data.games and site.data.games.size > 0 %}
+        {% for game in site.data.games limit: 3 %}
+          <a href="{{ game.url }}" class="game-card" target="_blank" rel="noopener noreferrer">
+            {% if game.image %}
+              <img class="game-card-img" src="{{ game.image | prepend: '/assets/img/' | relative_url }}" alt="{{ game.name }}" />
+            {% else %}
+              <div class="game-card-placeholder"><i class="fas fa-gamepad"></i></div>
+            {% endif %}
+            <div class="game-card-body">
+              <h3 class="game-card-title">{{ game.name }}</h3>
+              {% if game.description %}<p class="game-card-desc">{{ game.description }}</p>{% endif %}
+              <span class="game-card-cta">Play <i class="fas fa-external-link-alt"></i></span>
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        <a href="{{ itchio_url }}" class="game-card game-card--single" target="_blank" rel="noopener noreferrer">
+          <div class="game-card-placeholder"><i class="fab fa-itch-io"></i></div>
+          <div class="game-card-body">
+            <h3 class="game-card-title">ZeezBit Studios</h3>
+            <p class="game-card-desc">Indie games on itch.io</p>
+            <span class="game-card-cta">Browse games <i class="fas fa-external-link-alt"></i></span>
+          </div>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section experience-section">
+  <div class="section-inner">
+    <span class="section-label">JOURNEY</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline" id="experience-timeline">
+      {% assign exp_index = 0 %}
+      {% for exp in site.data.pro-experience-data %}
+        {% assign exp_index = exp_index | plus: 1 %}
+        {% assign exp_year = exp.from | split: " " | last %}
+        <article class="timeline-entry {% if exp_index > 4 %}timeline-entry--hidden{% endif %}" data-year="{{ exp_year }}" data-entry-index="{{ exp_index }}">
+          <span class="timeline-year">{{ exp_year }}</span>
+          <div class="timeline-content">
+            <h3 class="timeline-title">{{ exp.position }}</h3>
+            <p class="timeline-company">{{ exp.place }}</p>
+            <p class="timeline-date">{{ exp.from }} — {{ exp.to }}</p>
+            <p class="timeline-desc">{{ exp.description }}</p>
+          </div>
+        </article>
+      {% endfor %}
+      {% for exp in site.data.other-experience-data %}
+        {% assign exp_index = exp_index | plus: 1 %}
+        {% assign exp_year = exp.from | split: " " | last %}
+        <article class="timeline-entry {% if exp_index > 4 %}timeline-entry--hidden{% endif %}" data-year="{{ exp_year }}" data-entry-index="{{ exp_index }}">
+          <span class="timeline-year">{{ exp_year }}</span>
+          <div class="timeline-content">
+            <h3 class="timeline-title">{{ exp.position }}</h3>
+            <p class="timeline-company">{{ exp.place }}</p>
+            <p class="timeline-date">{{ exp.from }} — {{ exp.to }}</p>
+            <p class="timeline-desc">{{ exp.description }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    {% if exp_index > 4 %}
+    <div class="timeline-show-more-wrap" id="experience-show-more-wrap">
+      <button type="button" class="timeline-show-more-btn" id="experience-show-more-btn" aria-expanded="false">Show more</button>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section id="blog" class="section blog-section">
+  <div class="section-inner">
+    <span class="section-label">WRITING</span>
+    <h2 class="section-title">Featured Posts</h2>
+    <ul class="featured-posts-list">
+      {% for post in site.posts limit: 3 %}
+        <li class="featured-post">
+          <a href="{{ post.url | relative_url }}" class="featured-post-link">
+            <span class="featured-post-year">{{ post.date | date: "%Y" }}</span>
+            <h3 class="featured-post-title">{{ post.title }}</h3>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ '/blog/' | relative_url }}" class="blog-view-all">View all posts →</a>
+  </div>
+</section>
+
+<section id="contact" class="section contact-section">
+  <div class="section-inner">
+    <span class="section-label">CONNECT</span>
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="contact-intro">Feel free to reach out for discussions, collaborations, or if you'd simply like to chat.</p>
+    <div class="contact-cards">
+      {%- assign cal_data = site.data.social-media.cal -%}
+      {%- if site.author.cal and cal_data -%}
+      <a href="{{ cal_data.url }}{{ site.author.cal }}" class="contact-card" target="_blank" rel="noopener noreferrer">
+        <i class="{{ cal_data.icon }} contact-card-icon"></i>
+        <span class="contact-card-label">Schedule a call</span>
+        <span class="contact-card-value">cal.com</span>
+      </a>
+      {%- endif -%}
+      {% for account in site.author %}
+        {%- assign service_name = account[0] -%}
+        {%- assign service_data = site.data.social-media[service_name] -%}
+        {%- if service_data and service_name != 'cal' -%}
+        <a href="{{ service_data.url }}{{ account[1] }}" class="contact-card" target="_blank" rel="noopener noreferrer">
+          <i class="{{ service_data.icon }} contact-card-icon"></i>
+          <span class="contact-card-label">{{ service_name | capitalize }}</span>
+          <span class="contact-card-value">{{ account[1] }}</span>
+        </a>
+        {%- endif -%}
+      {% endfor %}
+    </div>
   </div>
 </section>

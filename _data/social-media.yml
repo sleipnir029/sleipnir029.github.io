@@ -1,6 +1,12 @@
 # Get Icons  from : https://fontawesome.com/icons
 # Get Colors from : https://brandcolors.net/
 
+cal:
+  url   : https://cal.com/
+  icon  : fas fa-calendar-check
+  color : 292929
+  # Author value is username only, e.g. rakibuzzamanrahat -> https://cal.com/rakibuzzamanrahat
+
 behance:
   url   : https://www.behance.net/
   icon  : fab fa-behance

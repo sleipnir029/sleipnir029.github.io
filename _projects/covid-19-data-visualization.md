@@ -1,8 +1,10 @@
 ---
 name: Covid-19 Data Visualization
 tools: [Tableau Public, Data Visualization]
-image: /assets/img/covid_19_dashboard.png 
+image: /assets/img/covid_19_dashboard.png
 description: This is a data visualisation on the Covid-19 data using Tableau.
+featured: true
+year: 2022
 ---
 
 # Covid-19 Data Visualization

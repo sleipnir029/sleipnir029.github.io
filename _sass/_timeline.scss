@@ -1,55 +1,53 @@
-// Experience section - clean vertical list (replaces old timeline)
+// Vertical timeline - large year on left (azmainadel.com style), content on right
 
-.experience-section {
-  margin-bottom: 1rem;
-}
-
-.experience-list {
+.timeline {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0;
 }
 
-.experience-item {
-  padding-bottom: 2rem;
+.timeline-entry {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 2.5rem;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--color-border);
+  align-items: start;
+  transition: opacity 0.3s ease, max-height 0.4s ease;
 
   &:last-child {
     border-bottom: none;
-    padding-bottom: 0;
   }
 }
 
-.experience-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
+.timeline-year {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  opacity: 0.4;
+  padding-top: 0.15rem;
+  position: sticky;
+  top: 1rem;
+  line-height: 1;
 }
 
-.experience-logo {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  object-fit: contain;
-  border-radius: 8px;
-  background: var(--color-surface);
-}
-
-.experience-logo-lg {
-  width: 64px;
-  height: 64px;
-  min-width: 64px;
-}
-
-.experience-meta {
-  flex: 1;
+.timeline-content {
   min-width: 0;
 }
 
-.experience-place {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
-  margin-bottom: 0.25rem;
+.timeline-title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--color-text);
+}
+
+.timeline-company {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.25rem;
 
   a {
     color: var(--color-text);
@@ -59,45 +57,60 @@
   }
 }
 
-.experience-position {
-  font-size: 0.9375rem;
-  color: var(--color-text-muted);
-  margin: 0 0 0.25rem;
-}
-
-.experience-date {
+.timeline-date {
   font-size: 0.8125rem;
   color: var(--color-text-muted);
-  margin: 0;
+  margin: 0 0 0.5rem;
 }
 
-.experience-desc {
+.timeline-desc {
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--color-text-muted);
   margin: 0;
-  padding-left: calc(48px + 1rem);
+}
 
-  @media (max-width: 575px) {
-    padding-left: 0;
+.timeline-entry--hidden {
+  display: none;
+}
+
+.timeline-entry--hidden.is-visible {
+  display: grid;
+}
+
+.timeline-show-more-wrap {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.timeline-show-more-btn {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9375rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
   }
 }
 
 @media (max-width: 575px) {
-  .experience-header {
-    flex-direction: column;
-    align-items: flex-start;
+  .timeline-entry {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
   }
 
-  .experience-logo {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-  }
-
-  .experience-logo-lg {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
+  .timeline-year {
+    position: static;
+    font-size: 1.25rem;
+    opacity: 0.5;
   }
 }

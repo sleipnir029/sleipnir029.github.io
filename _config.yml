@@ -1,6 +1,6 @@
 ### Site Settings ###
 title               : Rakibuzzaman Rahat
-subtitle            : MSE | Creative Coder
+subtitle            : Materials Scientist | Creative Coder
 description         : >-
                       "Tell me and I forget. Teach me and I remember. Involve me and I learn."
                       
@@ -36,6 +36,7 @@ author:
 # upwork            : freelancers/~01dcc656915383c67c
 # artstation        : anothersleipnir
   bluesky           : sleipnir029.bsky.social
+  cal               : rakibuzzamanrahat
 # behance           : your_username
 # medium            : your_username
 # gitlab            : your_username
@@ -59,6 +60,29 @@ google_analytics: UA-165410052-1
 ### Disqus ####
 disqus:
     shortname: https-rzaman-site
+
+### Typing animation (hero) ###
+typing_projects:
+  - "AI Automation @ Uniper"
+  - "Indie Games @ ZeezBit"
+  - "Data Visualizations"
+
+### Fantasy Hike (LOTR-style walk progress, minimal hero widget) ###
+fantasy_hike:
+  total_km: 1350
+  current_km: 178
+  destination: "Mordor"
+  milestones:
+    - name: "Bag End"
+      km: 0
+    - name: "Bree"
+      km: 60
+    - name: "Rivendell"
+      km: 370
+    - name: "Lothlórien"
+      km: 750
+    - name: "Mordor"
+      km: 1350
 
 ### Collections ###
 collections:

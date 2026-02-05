@@ -1,60 +1,46 @@
-// Minimal footer - uses theme colors
+// Minimal footer - copyright and theme toggle
 
-footer {
+.site-footer {
   margin-top: auto;
-  padding: 2rem 0;
-  text-align: center;
+  padding: 1.5rem 0;
   border-top: 1px solid var(--color-border);
 }
 
-footer .social {
-  text-decoration: none !important;
-  color: var(--color-text-muted);
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: var(--color-accent);
-  }
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-footer small {
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-left small {
   display: block;
   font-size: 0.8125rem;
   color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
 }
 
-footer .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+.footer-updated {
+  font-size: 0.75rem;
+  opacity: 0.85;
 }
 
-.footer-social {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+.footer-right {
+  flex-shrink: 0;
 }
 
-#attribution {
-  opacity: 0.5;
-
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--color-text-muted);
-  }
-}
-
-@media (min-width: 768px) {
-  #attribution {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    position: fixed;
-    bottom: 56px;
-    right: 22px;
-  }
+.footer-theme-btn {
+  padding: 0.5rem;
+  font-size: 1.125rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
 }

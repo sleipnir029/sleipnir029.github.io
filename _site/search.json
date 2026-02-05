@@ -1,3 +1,19 @@
 [
   
+    {
+      "title"    : "Image Grid Demo in a Blog Post",
+      "category" : "",
+      "tags"     : "jekyll, images",
+      "url"      : "/blog/test-post-two",
+      "date"     : "2024-02-20 15:00:00 +0100"
+    } ,
+  
+    {
+      "title"    : "Getting Started with Materials and Code",
+      "category" : "",
+      "tags"     : "materials, programming",
+      "url"      : "/blog/test-post-one",
+      "date"     : "2024-01-15 11:00:00 +0100"
+    } 
+  
 ]
