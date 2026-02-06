@@ -373,15 +373,19 @@ a:hover { color: var(--color-link-hover); }
 
 .hero-name-line1, .hero-name-line2 { display: block; color: var(--color-text); }
 
-.hero-typing-wrap { font-size: clamp(1.5rem, 3vw, 1.875rem); font-weight: 400; color: var(--color-text-body); margin: 0 0 1rem; }
+.hero-typing-wrap { font-size: clamp(1.5rem, 3vw, 1.875rem); font-weight: 400; color: var(--color-text-body); margin: 0 0 0.75rem; }
 
 .hero-typing { color: var(--color-accent); font-weight: 600; }
 
 .hero-typing-cursor { animation: blink 1s step-end infinite; margin-left: 2px; }
 
 @keyframes blink { 50% { opacity: 0; } }
-.hero-location { font-size: 0.875rem; font-weight: 400; color: var(--color-text-body); margin: 0; }
+.hero-location { font-size: 0.8125rem; font-weight: 400; color: var(--color-text-body); margin: 0; }
 .hero-location i { margin-right: 0.35rem; }
+
+.hero-location-sep { opacity: 0.7; margin: 0 0.25rem; }
+
+.hero-location-from, .hero-location-now { white-space: nowrap; }
 
 .about-section .about-prose { max-width: 65ch; font-size: 1rem; line-height: 1.75; color: var(--color-text); }
 .about-section .about-prose p { margin-bottom: 1.25rem; color: var(--color-text-body); }

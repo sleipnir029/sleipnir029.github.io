@@ -107,7 +107,7 @@
   font-size: clamp(1.5rem, 3vw, 1.875rem);
   font-weight: 400;
   color: var(--color-text-body);
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
 }
 
 .hero-typing {
@@ -125,7 +125,7 @@
 }
 
 .hero-location {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 400;
   color: var(--color-text-body);
   margin: 0;
@@ -133,6 +133,16 @@
   i {
     margin-right: 0.35rem;
   }
+}
+
+.hero-location-sep {
+  opacity: 0.7;
+  margin: 0 0.25rem;
+}
+
+.hero-location-from,
+.hero-location-now {
+  white-space: nowrap;
 }
 
 // ----- About -----
