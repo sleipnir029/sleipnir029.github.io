@@ -5,25 +5,31 @@ html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+// Light: warmer cream + brighter green accent (Brittany-style)
 :root,
 [data-theme="light"] {
-  --color-bg: #F5F0E8;
-  --color-surface: #EDE6DB;
-  --color-text: #2C2419;
-  --color-text-muted: #5C5247;
-  --color-accent: #6B7B5C;
-  --color-border: #D4C9B8;
-  --color-link: #6B7B5C;
-  --color-link-hover: #5A6A4B;
+  --color-bg: #F9F5EF;
+  --color-surface: #F1EBE2;
+  --color-text: #2A231C;
+  --color-text-body: color-mix(in srgb, #2A231C 72%, transparent);
+  --color-text-muted: #5C5346;
+  --color-accent: #2d9d78;
+  --color-border: #DDD4C8;
+  --color-link: #2d9d78;
+  --color-link-hover: #248f6a;
+  --color-overlay: rgba(45, 157, 120, 0.7);
 }
 
+// Dark: bright green/cyan accent (Brittany Chiang v4 style)
 [data-theme="dark"] {
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
-  --color-text: #e2e8f0;
-  --color-text-muted: #94a3b8;
-  --color-accent: #8B9B7A;
-  --color-border: #334155;
-  --color-link: #8B9B7A;
-  --color-link-hover: #9BAB8A;
+  --color-bg: #0c1322;
+  --color-surface: #1a2332;
+  --color-text: #e8eef5;
+  --color-text-body: color-mix(in srgb, #e8eef5 52%, transparent);
+  --color-text-muted: #a5b8ce;
+  --color-accent: #64ffda;
+  --color-border: #2d3d52;
+  --color-link: #64ffda;
+  --color-link-hover: #7effe0;
+  --color-overlay: rgba(100, 255, 218, 0.45);
 }

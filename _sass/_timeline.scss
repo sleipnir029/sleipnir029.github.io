@@ -24,7 +24,7 @@
   font-family: "Inter", sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 400;
-  color: var(--color-text-muted);
+  color: var(--color-text-body);
   opacity: 0.6;
   padding-top: 0.15rem;
   position: sticky;
@@ -46,7 +46,7 @@
 
 .timeline-company {
   font-size: 0.9375rem;
-  color: var(--color-text-muted);
+  color: var(--color-text-body);
   margin: 0 0 0.25rem;
 
   a {
@@ -59,14 +59,14 @@
 
 .timeline-date {
   font-size: 0.8125rem;
-  color: var(--color-text-muted);
+  color: var(--color-text-body);
   margin: 0 0 0.5rem;
 }
 
 .timeline-desc {
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: var(--color-text-muted);
+  color: var(--color-text-body);
   margin: 0;
 }
 

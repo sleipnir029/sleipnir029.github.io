@@ -5,6 +5,7 @@ image: /assets/img/MNIST_blog/traindata.png
 description: A machine learning model to recognize hand written digits.
 featured: true
 year: 2021
+github: https://github.com
 ---
 # Hand Written Digit Recognizer Using MNIST Dataset
 

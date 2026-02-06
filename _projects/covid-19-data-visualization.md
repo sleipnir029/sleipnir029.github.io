@@ -5,6 +5,7 @@ image: /assets/img/covid_19_dashboard.png
 description: This is a data visualisation on the Covid-19 data using Tableau.
 featured: true
 year: 2022
+github: https://github.com
 ---
 
 # Covid-19 Data Visualization

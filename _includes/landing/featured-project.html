@@ -1,10 +1,11 @@
 {%- assign project = include.project -%}
 {%- assign index = include.index | default: 0 -%}
 {%- assign mod = index | modulo: 2 -%}
-{%- if project.external_url -%}
-  {%- assign project_url = project.external_url -%}
-{%- else -%}
-  {%- assign project_url = project.url | relative_url -%}
+{%- assign github_url = project.github | default: project.github_url -%}
+{%- assign external_url = project.external_url -%}
+{%- assign project_link = external_url -%}
+{%- if project_link == blank -%}
+  {%- assign project_link = project.url | relative_url -%}
 {%- endif -%}
 
 <li class="featured-project featured-project--v4 {% if mod == 1 %}featured-project--reverse{% endif %}">
@@ -12,8 +13,17 @@
     <div class="featured-project-content">
       <span class="featured-project-overline">Featured Project</span>
       <h3 class="featured-project-title">
-        <a href="{{ project_url }}" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name }}</a>
+        {% if external_url != blank %}
+        <a href="{{ external_url }}" target="_blank" rel="noopener noreferrer">{{ project.name }}</a>
+        {% elsif github_url != blank %}
+        <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer">{{ project.name }}</a>
+        {% else %}
+        <span>{{ project.name }}</span>
+        {% endif %}
       </h3>
+      {% if project.subtitle %}
+      <p class="featured-project-subtitle">{{ project.subtitle }}</p>
+      {% endif %}
       <div class="featured-project-description">
         <p>{{ project.description }}</p>
       </div>
@@ -25,17 +35,23 @@
       </ul>
       {% endif %}
       <div class="featured-project-links">
-        <a href="{{ project_url }}" class="featured-project-cta" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>View project <i class="fas fa-external-link-alt"></i></a>
+        {% if github_url != blank %}
+        <a href="{{ github_url }}" class="featured-project-link-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        {% endif %}
+        <a href="{{ project_link }}" class="featured-project-link-icon" {% if external_url != blank %}target="_blank" rel="noopener noreferrer"{% endif %} aria-label="View {{ project.name }}"><i class="fas fa-external-link-alt"></i></a>
       </div>
     </div>
     <div class="featured-project-media">
-      <a href="{{ project_url }}" class="featured-project-media-link" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>
-        {% if project.image %}
+      <div class="featured-project-media-wrap">
+        <span class="featured-project-media-inner">
+          {% if project.image %}
           <img class="featured-project-img" src="{{ project.image | relative_url }}" alt="" />
-        {% else %}
-          <div class="featured-project-placeholder"><i class="fas fa-folder"></i></div>
-        {% endif %}
-      </a>
+          {% else %}
+          <span class="featured-project-placeholder"><i class="fas fa-folder"></i></span>
+          {% endif %}
+        </span>
+        <span class="featured-project-overlay" aria-hidden="true"></span>
+      </div>
     </div>
   </div>
 </li>
