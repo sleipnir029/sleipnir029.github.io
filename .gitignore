@@ -1,6 +1,11 @@
 # Ruby Gems
 *.gem
 
+# Jekyll build output (GitHub Actions builds and deploys)
+_site
+.jekyll-metadata
+.jekyll-cache
+
 # Design Files
 *.psd
 *.ai

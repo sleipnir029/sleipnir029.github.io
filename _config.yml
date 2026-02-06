@@ -4,8 +4,9 @@ subtitle            : Materials Scientist | Creative Coder
 description         : >-
                       "Tell me and I forget. Teach me and I remember. Involve me and I learn."
                       
-baseurl             : ""      
-name                : Rakibuzzaman Rahat  
+url                 : "https://rzaman.site"
+baseurl             : ""
+name                : Rakibuzzaman Rahat
 repository          : sleipnir029           
 
 
@@ -88,3 +89,7 @@ exclude:
   - CONTRIBUTING.md
   - LICENSE
   - "*.log"
+
+# Include so Chrome DevTools 404 goes away when devtools are open
+include:
+  - .well-known
