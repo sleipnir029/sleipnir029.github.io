@@ -60,6 +60,7 @@ body {
   flex-direction: column;
 }
 
+// Base heading weights (600). Landing section titles override to 400 for a lighter look.
 h1,
 h2,
 h3,
@@ -147,7 +148,7 @@ a {
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text-muted);
   margin-bottom: 0.5rem;

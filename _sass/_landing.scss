@@ -12,17 +12,6 @@
   padding-right: var(--container-padding);
 }
 
-.section-label {
-  display: block;
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  margin-bottom: 0.5rem;
-}
-
 .section-title {
   font-family: "Inter", sans-serif;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
@@ -104,10 +93,13 @@
 }
 
 .hero-typing-wrap {
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-size: clamp(1.1rem, 3vw, 1.875rem);
   font-weight: 400;
+  line-height: 1.4;
   color: var(--color-text-body);
   margin: 0 0 0.75rem;
+  min-height: 3.5rem; // fallback
+  min-height: 2lh; // reserve 2 lines so layout doesn't jump when phrase wraps on some viewports
 }
 
 .hero-typing {
@@ -187,7 +179,6 @@
 .about-aspiration-muted {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
-  opacity: 0.9;
   margin: 0;
 }
 
@@ -230,6 +221,10 @@
   z-index: 2;
   grid-column: 1 / -1;
   grid-row: 1;
+
+  @media (max-width: 768px) {
+    grid-row: 2; // Stack below image on mobile
+  }
 
   @media (min-width: 769px) {
     grid-column: 1 / 7;
@@ -284,13 +279,12 @@
   margin: 0 0 1rem;
 
   @media (max-width: 768px) {
-    padding: 1rem 0;
-    background: transparent;
-    box-shadow: none;
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
   }
 
   @media (max-width: 380px) {
-    padding: 0.75rem 0;
+    padding: 0.75rem 1rem;
   }
 
   p {
@@ -331,6 +325,10 @@
   grid-row: 1;
   width: 100%;
   max-width: 100%;
+
+  @media (max-width: 768px) {
+    grid-row: 1; // Image first on mobile, then content below
+  }
 
   @media (min-width: 769px) {
     grid-column: 6 / -1;
@@ -757,8 +755,22 @@
   }
 
   .contact-card {
-    min-height: 88px;
-    padding: 1rem;
+    min-height: auto;
+    min-width: 0;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .contact-card-icon {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .contact-card-label {
+    font-size: 0.6875rem;
+  }
+
+  .contact-card-value {
+    font-size: 0.8125rem;
   }
 
   .games-grid {
@@ -771,9 +783,13 @@
     padding-left: var(--container-padding);
     padding-right: var(--container-padding);
   }
+}
 
-  .contact-cards {
-    grid-template-columns: 1fr;
+// Contact: 3 columns for social links on mobile/tablet so boxes don't take full width
+.contact-cards {
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
   }
 }
 
@@ -846,11 +862,16 @@
 @media (max-width: 639px) {
   .archive-row {
     grid-template-columns: 3rem 1fr auto;
-    gap: 0.75rem;
+    gap: 0.5rem 0.75rem;
   }
 
   .archive-tools {
-    grid-column: 2 / -1;
+    grid-column: 2 / 3;
     font-size: 0.8125rem;
+  }
+
+  .archive-link {
+    grid-column: 3;
+    grid-row: 2;
   }
 }

@@ -24,8 +24,7 @@
   font-family: "Inter", sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 400;
-  color: var(--color-text-body);
-  opacity: 0.6;
+  color: var(--color-text-muted);
   padding-top: 0.15rem;
   position: sticky;
   top: 1rem;
@@ -111,6 +110,5 @@
   .timeline-year {
     position: static;
     font-size: 1rem;
-    opacity: 0.6;
   }
 }

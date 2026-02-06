@@ -9,15 +9,16 @@ html {
 :root,
 [data-theme="light"] {
   --color-bg: #F9F5EF;
-  --color-surface: #F1EBE2;
+  --color-surface: #EBE3D7;
   --color-text: #2A231C;
+  --color-text-body: #5C5346; // fallback for browsers without color-mix()
   --color-text-body: color-mix(in srgb, #2A231C 72%, transparent);
   --color-text-muted: #5C5346;
   --color-accent: #2d9d78;
-  --color-border: #DDD4C8;
+  --color-border: #CFC4B5;
   --color-link: #2d9d78;
   --color-link-hover: #248f6a;
-  --color-overlay: rgba(45, 157, 120, 0.7);
+  --color-overlay: rgba(42, 35, 28, 0.55);
 }
 
 // Dark: bright green/cyan accent (Brittany Chiang v4 style)
@@ -25,7 +26,8 @@ html {
   --color-bg: #0c1322;
   --color-surface: #1a2332;
   --color-text: #e8eef5;
-  --color-text-body: color-mix(in srgb, #e8eef5 52%, transparent);
+  --color-text-body: #8fa3bd; // fallback for browsers without color-mix()
+  --color-text-body: color-mix(in srgb, #e8eef5 61%, transparent);
   --color-text-muted: #a5b8ce;
   --color-accent: #64ffda;
   --color-border: #2d3d52;
