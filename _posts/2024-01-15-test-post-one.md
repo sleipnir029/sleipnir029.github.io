@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Getting Started with Materials and Code"
+title: "Sample: Layout and Formatting Demo"
 date: 2024-01-15 10:00:00 +0000
 tags:
   - materials

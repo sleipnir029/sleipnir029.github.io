@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Image Grid Demo in a Blog Post"
+title: "Sample: Image Grid Demo"
 date: 2024-02-20 14:00:00 +0000
 tags:
   - jekyll

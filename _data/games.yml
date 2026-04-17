@@ -1,6 +1,10 @@
-# Games from ZeezBit Studios / itch.io - add entries as needed
-# - name: "Game Title"
-#   platform: "itch.io"
-#   url: "https://zeezbitstudios.itch.io/..."
-#   image: "game-screenshot.png"
-#   description: "Short description"
+# Games from ZeezBit Studios / itch.io
+- name: "More"
+  url: "https://zeezbitstudios.itch.io/more"
+  image: "more-game.png"
+  description: "A horror visual novel built for Brackeys Game Jam 2022.2, exploring an endless 'mummification' narrative driven by player choices."
+
+- name: "Alien Dodge"
+  url: "https://zeezbitstudios.itch.io/alien-dodge-v1-01-02"
+  image: "alien-dodge.jpg"
+  description: "A 2D space-survival game set in 2769 - play as a sentient eye drifting through space, dodging alien lifeforms after a tragic first contact."

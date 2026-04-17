@@ -19,9 +19,9 @@ permalink: /archive/
         {% assign project_url = project.url | relative_url %}
       {% endif %}
       <div class="archive-row">
-        <span class="archive-year">{{ project.year | default: "—" }}</span>
+        <span class="archive-year">{{ project.year | default: "-" }}</span>
         <a href="{{ project_url }}" class="archive-name" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name }}</a>
-        <span class="archive-tools">{% if project.tools %}{{ project.tools | join: ", " }}{% else %}—{% endif %}</span>
+        <span class="archive-tools">{% if project.tools %}{{ project.tools | join: ", " }}{% else %}-{% endif %}</span>
         <a href="{{ project_url }}" class="archive-link" aria-label="Open {{ project.name }}" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}><i class="fas fa-external-link-alt"></i></a>
       </div>
     {% endfor %}

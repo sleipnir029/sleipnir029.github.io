@@ -1,8 +1,8 @@
-# Rakibuzzaman Rahat — Personal Site (v2)
+# Rakibuzzaman Rahat - Personal Site (v2)
 
 **Version 2** of [rzaman.site](https://rzaman.site): a single-page Jekyll portfolio with hero, about, projects, games, experience, blog, and contact. Design inspired by [Azmain Adel](https://azmainadel.com/) and [Brittany Chiang (v4)](https://v4.brittanychiang.com/).
 
-![Site preview — scrolling the homepage](assets/img/site-preview.gif)
+![Site preview - scrolling the homepage](assets/img/site-preview.gif)
 
 ---
 
@@ -31,8 +31,8 @@ The rotating line under your name (“Currently building: …”) comes from **`
 
 ```yaml
 typing_projects:
-  - "ai automation @ Uniper"
-  - "indie games @ ZeezBit"
+  - "AI & Automation @ Uniper"
+  - "Indie games @ ZeezBit"
   - "Boighorlibrary.com"
 ```
 
@@ -150,8 +150,8 @@ Each entry looks like:
 1. **Serve the site locally:** `bundle exec jekyll serve` and open http://localhost:4000.
 2. **Record the screen** while you slowly scroll down the page (hero → about → projects → games → experience → blog → contact).
 3. **Export as GIF:**
-   - **macOS:** [Kap](https://getkap.co/) — select region, record, export as GIF.
-   - **Windows:** [ScreenToGif](https://www.screentogif.com/) — record, then export as GIF.
+   - **macOS:** [Kap](https://getkap.co/) - select region, record, export as GIF.
+   - **Windows:** [ScreenToGif](https://www.screentogif.com/) - record, then export as GIF.
    - **Browser:** Use an extension that can record the visible tab and export GIF (e.g. “GIF Recorder” or similar).
 4. **Save as** **`assets/img/site-preview.gif`** in this repo so it appears at the top of the README.
 
@@ -185,5 +185,5 @@ rm assets/img/palette.png
 
 ## Branches
 
-- **`master`** — current site (v2); GitHub Pages deploys from here.
-- **`previous`** — archive of the pre-revamp site (v1).
+- **`master`** - current site (v2); GitHub Pages deploys from here.
+- **`previous`** - archive of the pre-revamp site (v1).

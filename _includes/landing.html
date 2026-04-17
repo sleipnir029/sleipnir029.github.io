@@ -27,7 +27,7 @@
 <section id="projects" class="section projects-section">
   <div class="section-inner">
     <span class="section-label">PROJECTS</span>
-    <h2 class="section-title">What I've Built</h2>
+    <h2 class="section-title">Things I Build</h2>
 
     <ul class="featured-projects" aria-label="Featured projects">
       {% assign featured_count = 0 %}
@@ -53,7 +53,7 @@
             {% unless project.featured %}
               {% assign proj_url = project.external_url | default: project.url | relative_url %}
               <li class="projects-archive-item">
-                <span class="projects-archive-year">{{ project.year | default: "—" }}</span>
+                <span class="projects-archive-year">{{ project.year | default: "-" }}</span>
                 <a href="{{ proj_url }}" class="projects-archive-title" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name }}</a>
                 <a href="{{ proj_url }}" class="projects-archive-icon" aria-label="Open {{ project.name }}" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}><i class="fas fa-external-link-alt"></i></a>
               </li>
@@ -63,7 +63,7 @@
           {% for project in site.projects offset: 2 %}
             {% assign proj_url = project.external_url | default: project.url | relative_url %}
             <li class="projects-archive-item">
-              <span class="projects-archive-year">{{ project.year | default: "—" }}</span>
+              <span class="projects-archive-year">{{ project.year | default: "-" }}</span>
               <a href="{{ proj_url }}" class="projects-archive-title" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name }}</a>
               <a href="{{ proj_url }}" class="projects-archive-icon" aria-label="Open {{ project.name }}" {% if project.external_url %}target="_blank" rel="noopener noreferrer"{% endif %}><i class="fas fa-external-link-alt"></i></a>
             </li>
@@ -79,7 +79,7 @@
     <span class="section-label">GAMES</span>
     <h2 class="section-title">Indie Games</h2>
     {% assign itchio_url = site.data.social-media.itchio.url | append: site.author.itchio %}
-    <p class="games-intro">Games from <a href="{{ itchio_url }}" target="_blank" rel="noopener noreferrer">ZeezBit Studios</a> — play on itch.io.</p>
+    <p class="games-intro">Games from <a href="{{ itchio_url }}" target="_blank" rel="noopener noreferrer">ZeezBit Studios</a> - play on itch.io.</p>
     <div class="games-grid">
       {% if site.data.games and site.data.games.size > 0 %}
         {% for game in site.data.games limit: 3 %}
@@ -124,7 +124,7 @@
           <div class="timeline-content">
             <h3 class="timeline-title">{{ exp.position }}</h3>
             <p class="timeline-company">{{ exp.place }}</p>
-            <p class="timeline-date">{{ exp.from }} — {{ exp.to }}</p>
+            <p class="timeline-date">{{ exp.from }} - {{ exp.to }}</p>
             <p class="timeline-desc">{{ exp.description }}</p>
           </div>
         </article>
@@ -137,7 +137,7 @@
           <div class="timeline-content">
             <h3 class="timeline-title">{{ exp.position }}</h3>
             <p class="timeline-company">{{ exp.place }}</p>
-            <p class="timeline-date">{{ exp.from }} — {{ exp.to }}</p>
+            <p class="timeline-date">{{ exp.from }} - {{ exp.to }}</p>
             <p class="timeline-desc">{{ exp.description }}</p>
           </div>
         </article>

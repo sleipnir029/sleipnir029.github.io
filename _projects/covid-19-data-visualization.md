@@ -2,48 +2,38 @@
 name: Covid-19 Data Visualization
 tools: [Tableau Public, Data Visualization]
 image: /assets/img/covid_19_dashboard.png
-description: This is a data visualisation on the Covid-19 data using Tableau.
-featured: true
+description: An interactive Tableau dashboard that surfaces confirmed cases, deaths, and mortality rates from the early Covid-19 dataset.
+featured: false
 year: 2022
 github: https://github.com
 ---
 
 # Covid-19 Data Visualization
 
-This a data visualisation project on Covid-19 dataset. This data contains the total confirmed cases and deaths as of **4th April, 2020** worldwide. You can download the dataset [here](https://docs.google.com/spreadsheets/d/1wt3I4--yBMrcQfR_VKAmAvEnW2dyF6h9VE_EXtNEFs4/edit#gid=1638746837).
+An interactive Tableau dashboard built on early Covid-19 case data, focused on making confirmed cases, deaths, and mortality rates easy to explore by country.
 
-Before jumping on the analysis, a few decisions were taken and these are:
-- Availability of the data.
-- Visualisation tool(s).
-- End goal of the project.
+## What I was solving for
 
-Regarding **availability** of the data, many forms of Covid-19 data is available on the internet. I have used the [data](https://docs.google.com/spreadsheets/d/1wt3I4--yBMrcQfR_VKAmAvEnW2dyF6h9VE_EXtNEFs4/edit#gid=1638746837) mentioned above. 
+Three decisions framed the project:
 
-The **visualisation tool** I have used here is [Tableau Public](https://public.tableau.com/en-us/s/). Tableau is one of the foremost visualisation tools used in the industry. It provides real time data analysis from one or more sources. It can cater for big datasets.
+1. Which dataset to use.
+2. Which visualization tool.
+3. What the dashboard should actually answer.
 
-The **end goal** of the project is to build a dashboard that is in sync with updated data in real time.
+I picked a publicly shared [Covid-19 dataset](https://docs.google.com/spreadsheets/d/1wt3I4--yBMrcQfR_VKAmAvEnW2dyF6h9VE_EXtNEFs4/edit#gid=1638746837) containing confirmed cases and deaths as of 4th April 2020. [Tableau Public](https://public.tableau.com/en-us/s/) was the tool since the aim was a shareable, real-time dashboard rather than a one-off report. The end goal: a single view that stays in sync with the underlying data.
 
-### Exploratory Data Analysis
+## Data prep
 
-The data is exported as a csv file instead of directly linking the google sheet. The two sheets inside the xlsx file *confirmed cases* and *deaths* were combined inside Tableau. There were a few feature columns that was omitted (FIPS-only used for USA, table names).
+I exported the spreadsheet as CSV and combined the *confirmed cases* and *deaths* sheets inside Tableau. A few columns were dropped (FIPS codes, used only for the USA, and the raw table names).
 
-Three new features were generated using the Tableau **Calculated field** option. These are:
-1. Total confirmed cases (#)
-2. Total deaths (#)
-3. Mortality rates (%)
+Three calculated fields were added:
 
-<br/>
+1. Total confirmed cases
+2. Total deaths
+3. Mortality rate (%)
 
-![alt text](../assets/img/covid_19_dashboard.png "Covid-19 dashboard")
+One edge case: the *Cruise ship* attribute in the country filter counted 734 confirmed cases and 14 deaths on a cruise ship that had no fixed country. I placed that marker near the Caribbean Islands on the map to reflect the most common cruise routes.
 
-<br/>
+![Covid-19 dashboard](/assets/img/covid_19_dashboard.png)
 
-> While filtering by **Country**, there was an attribute namely *Curise ship*. It indicates the number of people that were comfirmed cases (734) and had died (14) on a cruise ship. To indicate that on the world map I have used the location near the **Caribbean Islands** to mark the most used cruise ship routes.
-
-<br/>
-
-![alt text](../assets/img/major_cruises_heatmap.png "Major cruises heat map")
-
-<br/>
-
-After that I have used the data and features to build the dashboard. You can view the ineractive dashboard right [here](https://public.tableau.com/app/profile/rakibuzzaman.rahat6846/viz/Covid-19dataanalysis_16497710596810/Dashboard1). Please feel free to provide feedbacks. For more visualisation visit this [link](https://public.tableau.com/app/profile/rakibuzzaman.rahat6846).
+The final dashboard is live on Tableau Public: [Covid-19 Data Analysis Dashboard](https://public.tableau.com/app/profile/rakibuzzaman.rahat6846/viz/Covid-19dataanalysis_16497710596810/Dashboard1). More of my Tableau work lives on [my profile](https://public.tableau.com/app/profile/rakibuzzaman.rahat6846).

@@ -172,7 +172,8 @@
 }
 
 .post-content {
-  max-width: 65ch;
+  // A4-like readable width: scales with the viewport but capped so very wide screens don't stretch text
+  max-width: clamp(40rem, 72vw, 52rem);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--container-padding);

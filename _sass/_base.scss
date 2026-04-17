@@ -132,6 +132,14 @@ a {
   margin: 2rem auto 3rem;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 6px;
+  }
 }
 
 // Wider content for projects and blog grids
