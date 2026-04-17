@@ -44,6 +44,8 @@
       {% endif %}
     </ul>
 
+    {% assign other_projects = site.projects | where_exp: "p", "p.featured != true" %}
+    {% if other_projects.size > 0 %}
     <div class="projects-archive-wrap">
       <h3 class="subsection-title">Other Noteworthy Projects</h3>
       <a href="{{ '/archive/' | relative_url }}" class="projects-archive-link">view the archive</a>
@@ -71,6 +73,7 @@
         {% endif %}
       </ul>
     </div>
+    {% endif %}
   </div>
 </section>
 
