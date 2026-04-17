@@ -12,3 +12,29 @@ _site
 
 .env
 venv/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Claude Code / Playwright MCP artifacts
+.playwright-mcp/
+.claude/
+CLAUDE.md
+
+# Local screenshots / scratch captures
+screenshot-*.png
+page-*.png
+hero-*.png
+covid-*.png
+mnist-*.png
+screen_recording.mov
