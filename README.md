@@ -32,7 +32,7 @@ The rotating line under your name (“Currently building: …”) comes from **`
 ```yaml
 typing_projects:
   - "AI & Automation @ Uniper"
-  - "Indie games @ ZeezBit"
+  - "Indie games @ ZeezBit Studios"
   - "Boighorlibrary.com"
 ```
 
@@ -60,7 +60,7 @@ external_url: https://...  # optional; use if project lives elsewhere
 ---
 ```
 
-- **Featured:** Up to 3 projects with `featured: true` appear in the main “What I’ve Built” section. The rest appear under “Other Noteworthy Projects” and on the Projects page.
+- **Featured:** Up to 3 projects with `featured: true` appear in the main “Things I Build” section. Any non-featured projects show under “Other Noteworthy Projects” on the homepage and in the full archive. The “Other Noteworthy Projects” block auto-hides when every project is featured.
 - **Images:** Put images in **`assets/img/`** and reference as above.
 - **New project:** Create `_projects/your-slug.md` with the same front matter and write the body in Markdown. The slug becomes the URL (e.g. `/projects/your-slug`).
 
@@ -69,19 +69,25 @@ external_url: https://...  # optional; use if project lives elsewhere
 ### 3. Blog (writing)
 
 - **Location:** **`_posts/`**. One file per post.
-- **Filename:** `YYYY-MM-DD-slug.md` (e.g. `2025-02-06-my-post.md`).
+- **Filename:** `YYYY-MM-DD-slug.md` (e.g. `2026-02-14-my-post.md`). The slug becomes the URL: `/blog/my-post`.
 - **Front matter:**
 
 ```yaml
 ---
 layout: post
-title: Your Post Title
-date: 2025-02-06 12:00:00
-# optional: tags, categories
+title: "Your Post Title"
+date: 2026-02-14 10:00:00 +0000
+tags:
+  - tag-one
+  - tag-two
+description: "One-line blurb used on post cards and as the meta description."
+featured_image: assets/img/your-cover.png   # optional; renders above the post body
+# optional: image_grid (see existing posts for the shape)
 ---
 ```
 
 - **Featured posts on homepage:** The first 3 posts (newest first) are shown under “Featured Posts” on the landing page. Order is by `date`.
+- **Post column width:** Posts render in an A4-style wider column (`clamp(40rem, 72vw, 52rem)` in `_sass/_blog.scss`), with images and code blocks constrained by `max-width: 100%`.
 - Full blog index: `/blog/`. Tags: `/blog/tags.html`.
 
 ---
@@ -126,6 +132,7 @@ Each entry looks like:
 
 - **Single source:** **`_includes/about_prose.html`**
 - Used on both the homepage About section and the `/about/` page. Edit this file only; both places update.
+- **Show more / show less:** The first two paragraphs render by default; the rest sit inside `<div class="about-prose-more">` and expand on click. Toggle logic is in **`assets/js/about-show-more.js`**; styles live in `_sass/_landing.scss`. Add or remove paragraphs inside that wrapper to change what's hidden.
 
 ---
 
@@ -170,16 +177,20 @@ rm assets/img/palette.png
 | Path | Purpose |
 |------|--------|
 | `_config.yml` | Site title, URL, author, typing phrases, plugins |
+| `_layouts/*.html` | Page skeletons (default, page, post, element) |
 | `_includes/landing.html` | Homepage sections (hero, about, projects, games, experience, blog, contact) |
 | `_includes/about_prose.html` | About / life story text (used on homepage and /about/) |
+| `_includes/scripts.html` | All page scripts (theme toggle, side nav, typing, show-more, etc.) |
 | `_projects/*.md` | Project pages and featured project data |
 | `_posts/*.md` | Blog posts; first 3 appear as “Featured Posts” |
 | `_data/pro-experience-data.yml` | Professional experience |
 | `_data/other-experience-data.yml` | Other experience |
 | `_data/games.yml` | Games shown on homepage |
 | `_data/social-media.yml` | Base URLs and icons for contact links |
-| `pages/*.md`, `pages/*.html` | Standalone pages (about, blog, experience, etc.) |
-| `assets/img/` | Images (avatar, logos, project screenshots, preview GIF) |
+| `_sass/*.scss` | Per-component styles (landing, blog, timeline, base, etc.) |
+| `pages/*.md`, `pages/*.html` | Standalone pages (about, blog, experience, archive, etc.) |
+| `assets/img/` | Images (avatar, logos, project screenshots, game covers, preview GIF) |
+| `assets/js/*.js` | Client scripts (`typing.js`, `about-show-more.js`, `experience-show-more.js`, `side-nav.js`, `theme-toggle.js`, `scroll-animations.js`) |
 
 ---
 
@@ -187,3 +198,4 @@ rm assets/img/palette.png
 
 - **`master`** - current site (v2); GitHub Pages deploys from here.
 - **`previous`** - archive of the pre-revamp site (v1).
+- **Feature branches** (e.g. `revamp`) - ongoing work merges into `master` via fast-forward once verified locally.
